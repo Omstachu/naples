@@ -10,11 +10,11 @@ class Page(db.Model):
     userId = db.Column(db.Integer, ForeignKey("users.id"), nullable=False)
     name = db.Column(db.String(40))
 
-    user = relationship("User", back_populates="pages")
+    user = relationship("User")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "userId": self.userId,
             "name": self.name,
+            "userId": self.userId,
         }

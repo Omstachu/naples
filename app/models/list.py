@@ -10,7 +10,7 @@ class List(db.Model):
     pageId = db.Column(db.Integer, ForeignKey("pages.id"), nullable=False)
     name = db.Column(db.String(40))
 
-    page = relationship("page", back_populates="lists")
+    page = relationship("Page")
 
     def to_dict(self):
         return {
