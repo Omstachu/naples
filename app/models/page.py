@@ -11,6 +11,7 @@ class Page(db.Model):
     name = db.Column(db.String(40))
 
     user = relationship("User")
+    # list = relationship("List", back_populates="page")
 
     def to_dict(self):
         return {

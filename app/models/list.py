@@ -11,6 +11,7 @@ class List(db.Model):
     name = db.Column(db.String(40))
 
     page = relationship("Page")
+    item = relationship("Item")
 
     def to_dict(self):
         return {
