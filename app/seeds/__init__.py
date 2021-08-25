@@ -1,7 +1,8 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .pages import seed_pages, undo_pages
-
+from .lists import seed_list, undo_list
+from .items import seed_item, undo_item
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
@@ -12,6 +13,8 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     seed_pages()
+    seed_list()
+    seed_item()
     # Add other seed functions here
 
 
@@ -20,4 +23,6 @@ def seed():
 def undo():
     undo_users()
     undo_pages()
+    undo_list()
+    undo_item()
     # Add other undo functions here
