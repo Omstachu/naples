@@ -1,4 +1,5 @@
 from .db import db
+from flask import jsonify
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
@@ -14,8 +15,11 @@ class List(db.Model):
     item = relationship("Item")
 
     def to_dict(self):
-        return {
+        data = {
             "id": self.id,
             "pageId": self.pageId,
             "name": self.name,
+            "content": self.item
         }
+        # return jsonify(data)
+        return data
