@@ -8,21 +8,12 @@ list_routes = Blueprint('lists', __name__)
 @list_routes.route('/')
 # @login_required
 def lists():
-    # lists = List.query.all()
     lists = List.query.join(Item)
-    # lists = List.query.join(List.item)
-    # print("----------------------------LIST", dir(Item.query.get(1).id))
-    # print("----------------------------LIST", List.item)
-    # lists = Item.query.join(List)
+    # lists = db.session.Query(List).join(Item)
     return {"lists": [list.to_dict() for list in lists]}
 
 @list_routes.route('/<int:id>')
 # @login_required
 def list(id):
     list = List.query.get(id)
-    # list = List.join(Item).all()
-    # return list.to_dict()
-    # jsonify(list.item)
-    print("-------------------------------LIST", dir(list.to_dict()["content"][0]))
-    print("-------------------------------LIST", list.to_dict()["content"][0].content)
-    return list.to_dict()["name"]
+    return list.to_dict()

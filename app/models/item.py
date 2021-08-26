@@ -10,7 +10,7 @@ class Item(db.Model):
     listId = db.Column(db.Integer, ForeignKey("lists.id"), nullable=False)
     content = db.Column(db.String(40))
 
-    lists = relationship("List")
+    # lists = relationship("List")
 
     def to_dict(self):
         return {
