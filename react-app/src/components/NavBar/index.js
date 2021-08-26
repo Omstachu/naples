@@ -28,6 +28,16 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to='/pages' exact={true} activeClassName='active'>
+            Pages
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/lists/1' exact={true} activeClassName='active'>
+            List 1
+          </NavLink>
+        </li>
+        <li>
           <LogoutButton />
         </li>
       </ul>

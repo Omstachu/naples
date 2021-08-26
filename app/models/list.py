@@ -11,7 +11,7 @@ class List(db.Model):
     pageId = db.Column(db.Integer, ForeignKey("pages.id"), nullable=False)
     name = db.Column(db.String(40))
 
-    # page = relationship("Page")
+    page = relationship("Page")
     item = relationship("Item")
 
 
