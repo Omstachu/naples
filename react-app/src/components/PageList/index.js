@@ -8,17 +8,9 @@ function PageList(){
 
     const pages = useSelector(state => state.page)
     const userId = useSelector((state) => state.session.user.id);
-    console.log(pages)
-    // console.log("userId", userId)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        // (async () => {
-        //     const res = await fetch(`/api/pages/`)
-        //     const page = await res.json()
-        //     console.log("--------------------------page",page)
-        //     setPages(page)
-        // })()
         dispatch(getAllPages())
     }, [dispatch])
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
@@ -7,8 +6,6 @@ function Page(){
     const [page, setPage] = useState({});
     const { pageId }  = useParams();
 
-    // const userId = useSelector((state) => state.session.user.id);
-    // console.log(userId)
     useEffect(() => {
         if (!pageId){
             return;
@@ -16,7 +13,6 @@ function Page(){
         (async () => {
             const res = await fetch(`/api/pages/${pageId}`)
             const page = await res.json()
-            console.log(page)
             setPage(page)
         })()
     }, [pageId])
