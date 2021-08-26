@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 function Page(){
     const [pages, setPages] = useState({});
+
+    const userId = useSelector((state) => state.session.user.id);
+
     useEffect(() => {
         (async () => {
             const res = await fetch(`/api/pages`)
@@ -10,6 +14,7 @@ function Page(){
         })()
     }, [])
 
+
     if(!pages) {
         return null;
     }
@@ -17,9 +22,13 @@ function Page(){
 
     const pageNames = (
       pages.pages?.map((page,idx) =>{
-         return <li key={idx}>
+          if (page.userId === userId){
+              return <li key={idx}>
              <NavLink to={`/pages/${page.id}`} >{page.name}</NavLink>
          </li>
+        } else {
+            return null
+        }
       })
     )
 
