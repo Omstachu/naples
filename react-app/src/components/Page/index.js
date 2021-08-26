@@ -12,7 +12,7 @@ function Page(){
         (async () => {
             const res = await fetch(`/api/pages/${pageId}`)
             const page = await res.json()
-            // console.log(page)s
+            console.log(page)
             setPage(page)
         })()
     }, [pageId])
@@ -20,6 +20,14 @@ function Page(){
     if(!page) {
         return null;
     }
+
+
+    const contentList = (
+      page.lists.map((list,idx) =>{
+         return <li key={idx}>{list.name}</li>
+      })
+    )
+    // console.log(page)
 
     // console.log(page)
 
@@ -31,6 +39,10 @@ function Page(){
         <li>
           <strong>page</strong> {page.name}
         </li>
+        <h2>Lists</h2>
+        <ul>
+          {contentList}
+        </ul>
       </ul>
     )
 }

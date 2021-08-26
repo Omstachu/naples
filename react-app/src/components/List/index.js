@@ -12,7 +12,7 @@ function List(){
         (async () => {
             const res = await fetch(`/api/lists/${listId}`)
             const list = await res.json()
-            // console.log(list)s
+            console.log(list)
             setList(list)
         })()
     }, [listId])
