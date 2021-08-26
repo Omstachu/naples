@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { getAllPages } from '../../store/page';
+import CreatePageForm from '../CreatePageForm';
+
 
 function PageList(){
     // const [pages, setPages] = useState({});
@@ -13,11 +15,6 @@ function PageList(){
     useEffect(() => {
         dispatch(getAllPages())
     }, [dispatch])
-
-
-    if(!pages) {
-        return null;
-    }
 
 
     const pageNames = (
@@ -40,7 +37,7 @@ function PageList(){
         <ul>
           {pageNames}
         </ul>
-        <button>New Page</button>
+        <CreatePageForm userId={userId}/>
         </ul>
     )
 }

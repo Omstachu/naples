@@ -17,11 +17,6 @@ function Page(){
         })()
     }, [pageId])
 
-    if(!page) {
-        return null;
-    }
-
-
     const listNames = (
       page.lists?.map((list,idx) =>{
          return <li key={idx}>
@@ -39,6 +34,7 @@ function Page(){
         <ul>
           {listNames}
         </ul>
+
       </ul>
     )
 }

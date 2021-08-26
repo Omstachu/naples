@@ -10,10 +10,10 @@ const getPage = (page) => ({
     payload: page
 })
 
-export const createPage = (user, name) => async (dispatch) => {
+export const createPage = (userId, name) => async (dispatch) => {
     let formData = new FormData()
     let new_page = {
-        userId: user.id,
+        userId: userId,
         name: name
     }
     formData.append("new_page", new_page );
