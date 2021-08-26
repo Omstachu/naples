@@ -15,7 +15,6 @@ export const createPage = (userId, name) => async (dispatch) => {
 
     formData.append("userId", userId)
     formData.append("name", name)
-    console.log("FORMDATA------------------------", formData)
     const res = await fetch("/api/pages/", {
         method: "POST",
         body: formData

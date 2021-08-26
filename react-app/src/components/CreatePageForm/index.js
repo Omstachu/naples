@@ -11,7 +11,6 @@ function CreatePageForm({userId, hideForm}){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log("userId and pageName----------------", userId, pageName)
         const res = await dispatch(createPage(userId, pageName))
         history.push(`/pages/${res.data.id}`)
     }
