@@ -21,16 +21,27 @@ function List(){
         return null;
     }
 
-    // console.log(list)
+    const itemContent = list.contents?.map((content,idx)=>{
+      return (
+        <li key={idx}>
+          {content}
+        </li>
+      )
+    })
 
     return (
         <ul>
         <li>
           <strong>List Id</strong> {listId}
         </li>
-        <li>
+        {/* <li>
           <strong>list</strong> {list.name}
-        </li>
+        </li> */}
+        <h2>{list.name}</h2>
+        <ul>
+          {itemContent}
+        </ul>
+
       </ul>
     )
 }
