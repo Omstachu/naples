@@ -8,7 +8,7 @@ page_routes = Blueprint('pages', __name__)
 @page_routes.route('/')
 @login_required
 def pages():
-    pages = Page.query.all()
+    pages = Page.query
     return {"pages": [page.to_dict() for page in pages]}
     # return [page.to_dict() for page in pages]
 
