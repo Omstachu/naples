@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 function Page(){
@@ -23,7 +24,9 @@ function Page(){
 
     const listNames = (
       page.lists?.map((list,idx) =>{
-         return <li key={idx}>{list.name}</li>
+         return <li key={idx}>
+           <NavLink to={`/lists/${list.id}`}>{list.name}</NavLink>
+         </li>
       })
     )
 

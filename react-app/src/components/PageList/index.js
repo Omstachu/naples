@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 function Page(){
     const [pages, setPages] = useState({});
     useEffect(() => {
@@ -16,7 +17,9 @@ function Page(){
 
     const pageNames = (
       pages.pages?.map((page,idx) =>{
-         return <li key={idx}>{page.name}</li>
+         return <li key={idx}>
+             <NavLink to={`/pages/${page.id}`} >{page.name}</NavLink>
+         </li>
       })
     )
 
