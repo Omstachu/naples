@@ -25,8 +25,20 @@ def page(id):
 def create_page():
     form = PageForm()
 
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        page = Page(
+            userId = form.data['userId'],
+            name = form.data['name']
+        )
+        print("-------------------INSIDE VALIDATE", form.data)
+
     # page_data = jsonify(dir(request.form))
     # page_data = dir(request.form.values)
-    page_data = request.form["new_page"]
+    # page_data = request.form["new_page"]
+    # page_data = dir(form)
+    # page_data = form["userId"].data
+    # page_data = request.form
+    page_data = request.form.to_dict()
 
-    print("-----------------------------------", page_data)
+    print("-----------------------------------PAGE_DATA", page_data)

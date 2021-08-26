@@ -9,9 +9,9 @@ function CreatePageForm({userId, hideForm}){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("userId and pageName----------------", userId, pageName)
+        // console.log("userId and pageName----------------", userId, pageName)
         const res = await dispatch(createPage(userId, pageName))
-        console.log("RESDATA", res.data)
+        console.log("RESDATA", res)
     }
 
     const updatePageName = e => {

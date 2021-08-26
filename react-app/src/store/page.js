@@ -12,14 +12,13 @@ const getPage = (page) => ({
 
 export const createPage = (userId, name) => async (dispatch) => {
     let formData = new FormData()
-    let new_page = {
-        userId: userId,
-        name: name
-    }
-    formData.append("new_page", new_page );
+
+    formData.append("userId", userId)
+    formData.append("name", name)
+    console.log("FORMDATA------------------------", formData)
     const res = await fetch("/api/pages/", {
         method: "POST",
-        body: formData,
+        body: formData
       });
 
     if (res.ok) {
