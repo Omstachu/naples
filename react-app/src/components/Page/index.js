@@ -7,8 +7,8 @@ function Page(){
     const [page, setPage] = useState({});
     const { pageId }  = useParams();
 
-    const userId = useSelector((state) => state.session.user.id);
-    console.log(userId)
+    // const userId = useSelector((state) => state.session.user.id);
+    // console.log(userId)
     useEffect(() => {
         if (!pageId){
             return;
@@ -16,6 +16,7 @@ function Page(){
         (async () => {
             const res = await fetch(`/api/pages/${pageId}`)
             const page = await res.json()
+            console.log(page)
             setPage(page)
         })()
     }, [pageId])
