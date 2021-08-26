@@ -10,16 +10,14 @@ const getPage = (page) => ({
     payload: page
 })
 
-export const createPage = (user, name) => async (dispatch) => {
+export const createPage = (userId, name) => async (dispatch) => {
     let formData = new FormData()
-    let new_page = {
-        userId: user.id,
-        name: name
-    }
-    formData.append("new_page", new_page );
+
+    formData.append("userId", userId)
+    formData.append("name", name)
     const res = await fetch("/api/pages/", {
         method: "POST",
-        body: formData,
+        body: formData
       });
 
     if (res.ok) {
@@ -63,7 +61,7 @@ export default function reducer(state = initialState, action){
         case GET_PAGE:
             return action.payload
         case ADD_PAGE:
-            return {pages: action.payload}
+            return [state] // this wrong, we need to incorporate the new page into the current state
         default:
             return state
     }
