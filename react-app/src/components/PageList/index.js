@@ -11,6 +11,7 @@ function PageList(){
     const pages = useSelector(state => state.page)
     const userId = useSelector((state) => state.session.user.id);
     const dispatch = useDispatch()
+    console.log("PAGES", pages)
 
     useEffect(() => {
         dispatch(getAllPages())

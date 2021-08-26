@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
+import { useHistory } from 'react-router-dom';
 import { createPage} from '../../store/page';
 
 function CreatePageForm({userId, hideForm}){
     const [pageName, setPageName] = useState("")
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         // console.log("userId and pageName----------------", userId, pageName)
         const res = await dispatch(createPage(userId, pageName))
-        console.log("RESDATA", res)
+        history.push(`/pages/${res.data.id}`)
     }
 
     const updatePageName = e => {

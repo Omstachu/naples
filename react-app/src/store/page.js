@@ -62,7 +62,7 @@ export default function reducer(state = initialState, action){
         case GET_PAGE:
             return action.payload
         case ADD_PAGE:
-            return {pages: action.payload}
+            return [state] // this wrong, we need to incorporate the new page into the current state
         default:
             return state
     }
