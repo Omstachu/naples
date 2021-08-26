@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request, jsonify
 from flask_login import login_required
-from app.models import List,Item
+from app.models import List,Item, db
+from ..forms import ListForm
 
 list_routes = Blueprint('lists', __name__)
 
@@ -17,3 +18,26 @@ def lists():
 def list(id):
     list = List.query.get(id)
     return list.to_dict()
+
+@list_routes.route('/', methods=["POST"])
+@login_required
+def create_list():
+    form = ListForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        list = List(
+            pageId = form.data['pageId'],
+            name = form.data['name'],
+        )
+
+        db.session.add(list)
+        db.session.commit()
+
+        list = {
+            "id": list.id,
+            "name": list.name,
+            "pageId": list.pageId,
+            "contents": list.to_dict()["contents"]
+        }
+    return list

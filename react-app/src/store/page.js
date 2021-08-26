@@ -15,7 +15,6 @@ export const createPage = (userId, name) => async (dispatch) => {
 
     formData.append("userId", userId)
     formData.append("name", name)
-    console.log("FORMDATA------------------------", formData)
     const res = await fetch("/api/pages/", {
         method: "POST",
         body: formData
@@ -54,7 +53,7 @@ export const getAllPages = () => async (dispatch) => {
 }
 
 const initialState = {
-    post: {}
+    page: {}
 }
 
 export default function reducer(state = initialState, action){
