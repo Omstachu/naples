@@ -11,10 +11,13 @@ class Page(db.Model):
     name = db.Column(db.String(40))
 
     user = relationship("User")
+    list = relationship("List")
 
     def to_dict(self):
+        lists = [el.to_dict() for el in self.list]
         return {
             "id": self.id,
             "name": self.name,
             "userId": self.userId,
+            "lists": lists
         }

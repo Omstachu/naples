@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import List
+from app.models import List,Item
 
 list_routes = Blueprint('lists', __name__)
 
@@ -8,7 +8,8 @@ list_routes = Blueprint('lists', __name__)
 @list_routes.route('/')
 # @login_required
 def lists():
-    lists = List.query.all()
+    lists = List.query.join(Item)
+    # lists = db.session.Query(List).join(Item)
     return {"lists": [list.to_dict() for list in lists]}
 
 @list_routes.route('/<int:id>')
