@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 import json
 from flask_login import login_required
-from app.models import Page
+from app.models import Page, db
 from ..forms import PageForm
 
 page_routes = Blueprint('pages', __name__)
@@ -31,14 +31,14 @@ def create_page():
             userId = form.data['userId'],
             name = form.data['name']
         )
-        print("-------------------INSIDE VALIDATE", form.data)
+        db.session.add(page)
+        db.session.commit()
+        # print("-------------------INSIDE VALIDATE", form.data)
 
-    # page_data = jsonify(dir(request.form))
-    # page_data = dir(request.form.values)
-    # page_data = request.form["new_page"]
-    # page_data = dir(form)
-    # page_data = form["userId"].data
-    # page_data = request.form
-    page_data = request.form.to_dict()
-
-    print("-----------------------------------PAGE_DATA", page_data)
+        page = {
+            "id": page.id,
+            "name": page.name,
+            "userId": page.userId,
+            "lists": page.to_dict()["lists"]
+        }
+    return page
