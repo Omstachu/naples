@@ -1,5 +1,6 @@
 const ADD_ITEM = 'items/ADD_ITEM'
 const GET_ITEM = 'items/GET_ITEM'
+const DELETE_ITEM = 'items/DELETE_ITEM'
 
 const addItem = (item) => ({
     type: ADD_ITEM,
@@ -9,6 +10,11 @@ const getItem = (item) => ({
     type: GET_ITEM,
     payload: item
 })
+const deleteItem = (item) => ({
+    type: DELETE_ITEM,
+    payload: item
+})
+
 
 export const createItem = (listId, content) => async (dispatch) => {
     let formData = new FormData()
@@ -44,6 +50,31 @@ export const getAllItems = () => async (dispatch) => {
         dispatch(getItem(data));
     }
 }
+
+export const removeItem = (item) => async (dispatch) => {
+    const response = await fetch(`/api/items/${item.id}/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        post: item,
+      }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(deleteItem(data));
+      return data;
+    } else if (response.status < 500) {
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ["An error occurred. Please try again."];
+    }
+  };
 
 const initialState = {
     item: {}
