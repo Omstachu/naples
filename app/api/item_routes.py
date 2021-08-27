@@ -40,6 +40,19 @@ def create_item():
         }
     return item
 
+
+@item_routes.route('/<int:id>/edit', methods=["POST"])
+@login_required
+def edit_item(id):
+    #     # post form should be modified to editForm
+    content = request.form["content"]
+    if len(content) <= 40:
+        item = Item.query.get(id)
+        item.content = content
+        db.session.commit()
+        return {'Success': 'Success!'}
+    return {'failure':"It is over 40"}
+
 @item_routes.route('/<int:id>/delete', methods=["POST"])
 @login_required
 def delete_item(id):
