@@ -44,6 +44,16 @@ export const getAllLists = () => async (dispatch) => {
     }
 }
 
+export const getOneList = (listId) => async (dispatch) => {
+    const res = await fetch(`/api/lists/${listId}`);
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(getList(data));
+    }
+}
+
+
 const initialState = {
     list: {}
 }

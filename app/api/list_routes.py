@@ -23,22 +23,24 @@ def list(id):
 @login_required
 def create_list():
     form = ListForm()
-    print("------------------------------------", form.data['name'])
 
     form['csrf_token'].data = request.cookies['csrf_token']
-    # if form.validate_on_submit():
-    list = List(
-        pageId = form.data['pageId'],
-        name = form.data['name'],
-    )
+    if form.validate_on_submit():
+        list = List(
+            pageId = form.data['pageId'],
+            name = form.data['name'],
+        )
 
-    db.session.add(list)
-    db.session.commit()
+        # print(form.data['name'])s
+        db.session.add(list)
+        db.session.commit()
 
-    list = {
-        "id": list.id,
-        "name": list.name,
-        "pageId": list.pageId,
-        "contents": list.to_dict()["contents"]
-    }
+        list = {
+            "id": list.id,
+            "name": list.name,
+            "pageId": list.pageId,
+            "items": list.to_dict()["items"],
+            "contents": list.to_dict()["contents"],
+
+        }
     return list

@@ -58,7 +58,7 @@ export const removeItem = (item) => async (dispatch) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        post: item,
+        item: item,
       }),
     });
 
