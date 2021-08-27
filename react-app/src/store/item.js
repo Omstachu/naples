@@ -1,6 +1,6 @@
 const ADD_ITEM = 'items/ADD_ITEM'
 const GET_ITEM = 'items/GET_ITEM'
-const EDIT_ITEM = 'items/GET_ITEM'
+const EDIT_ITEM = 'items/EDIT_ITEM'
 const DELETE_ITEM = 'items/DELETE_ITEM'
 
 const addItem = (item) => ({

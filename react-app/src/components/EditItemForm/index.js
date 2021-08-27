@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
 
 const EditItemForm = ({item}) => {
-    const dispatch = useDispatch()
     const [content, setContent] = useState("")
+
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         setContent(item?.content)

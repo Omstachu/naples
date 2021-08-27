@@ -45,6 +45,18 @@ def create_list():
         }
     return list
 
+@list_routes.route('/<int:id>/edit', methods=["POST"])
+@login_required
+def edit_list_name(id):
+    #     # post form should be modified to editForm
+    name = request.form["name"]
+    if len(name) <= 40:
+        list = List.query.get(id)
+        list.name = name
+        db.session.commit()
+        return {'Success': 'Success!'}
+    return {'failure':"It is over 40"}
+
 @list_routes.route('/<int:id>/delete', methods=["POST"])
 @login_required
 def delete_list(id):

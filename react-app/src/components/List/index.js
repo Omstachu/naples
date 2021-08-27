@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import CreateItemForm from '../CreateItemForm';
 import DeleteItemButton from '../DeleteItemButton';
 import DeleteListButton from '../DeleteListButton';
+import EditListForm from '../EditListForm';
 import EditItemForm from '../EditItemForm';
 import { getOneList } from '../../store/list';
 
@@ -36,8 +37,6 @@ function List(){
         return null;
     }
 
-    console.log(list)
-
     const itemContent = list.items?.map((item)=>{
       item = {
         content: item[0],
@@ -56,6 +55,7 @@ function List(){
         <ul>
         <div>
           <h2>{list.name}</h2>
+          <EditListForm list={list}/>
           <DeleteListButton listId={listId} pageId={pageId}/>
         </div>
 
