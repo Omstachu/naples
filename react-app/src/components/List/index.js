@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import CreateItemForm from '../CreateItemForm';
 
 function List(){
     const [list, setList] = useState({});
@@ -30,17 +31,11 @@ function List(){
 
     return (
         <ul>
-        <li>
-          <strong>List Id</strong> {listId}
-        </li>
-        {/* <li>
-          <strong>list</strong> {list.name}
-        </li> */}
         <h2>{list.name}</h2>
         <ul>
           {itemContent}
         </ul>
-
+        <CreateItemForm listId={listId} />
       </ul>
     )
 }
