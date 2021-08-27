@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import CreateListForm from '../CreateListForm'
 
 function Page(){
     const [page, setPage] = useState({});
@@ -34,7 +35,7 @@ function Page(){
         <ul>
           {listNames}
         </ul>
-
+        <CreateListForm pageId={pageId}/>
       </ul>
     )
 }
