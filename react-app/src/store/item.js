@@ -52,7 +52,7 @@ export const getAllItems = () => async (dispatch) => {
 }
 
 export const removeItem = (itemId) => async (dispatch) => {
-    const response = await fetch(`/api/items/${itemId}`, {
+    const response = await fetch(`/api/items/${itemId}/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

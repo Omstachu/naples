@@ -40,7 +40,7 @@ def create_item():
         }
     return item
 
-@item_routes.route('/<int:id>', methods=["POST"])
+@item_routes.route('/<int:id>/delete', methods=["POST"])
 @login_required
 def delete_item(id):
     print(id)

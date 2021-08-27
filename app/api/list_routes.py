@@ -44,3 +44,14 @@ def create_list():
 
         }
     return list
+
+@list_routes.route('/<int:id>/delete', methods=["POST"])
+@login_required
+def delete_list(id):
+    print(id)
+    list = List.query.get(id)
+    # print("CONTENT", list.content)
+    db.session.delete(list)
+    db.session.commit()
+
+    return {'Success': id}

@@ -3,14 +3,15 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import CreateItemForm from '../CreateItemForm';
 import DeleteItemButton from '../DeleteItemButton';
-import { getAllLists } from '../../store/list';
+import DeleteListButton from '../DeleteListButton';
 import { getOneList } from '../../store/list';
+
 
 function List(){
     // const [list, setList] = useState({});
     const { listId }  = useParams();
     const list = useSelector(state => state.list)
-
+    const pageId = list.pageId
     const dispatch = useDispatch()
 
     useEffect(()=> {
@@ -47,7 +48,11 @@ function List(){
 
     return (
         <ul>
-        <h2>{list.name}</h2>
+        <div>
+          <h2>{list.name}</h2>
+          <DeleteListButton listId={listId} pageId={pageId}/>
+        </div>
+
         <ul>
           {itemContent}
         </ul>
