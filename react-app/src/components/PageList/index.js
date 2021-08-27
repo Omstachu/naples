@@ -19,15 +19,15 @@ function PageList(){
 
 
     const pageNames = (
-      pages.pages?.map((page,idx) =>{
-          if (page.userId === userId){
-              return <li key={idx}>
-             <NavLink to={`/pages/${page.id}`} >{page.name}</NavLink>
-         </li>
-        } else {
-            return null
-        }
-      })
+        pages.pages?.map((page,idx) =>{
+            if (page.userId === userId){
+                return <li key={idx}>
+                <NavLink to={`/pages/${page.id}`} >{page.name}</NavLink>
+            </li>
+            } else {
+                return null
+            }
+        })
     )
 
     return (

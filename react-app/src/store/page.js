@@ -53,7 +53,7 @@ export const getAllPages = () => async (dispatch) => {
 }
 
 const initialState = {
-    post: {}
+    page: {}
 }
 
 export default function reducer(state = initialState, action){

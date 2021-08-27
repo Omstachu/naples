@@ -12,14 +12,17 @@ class List(db.Model):
     name = db.Column(db.String(40))
 
     page = relationship("Page")
-    item = relationship("Item")
+    item = relationship("Item", cascade="all,delete")
 
 
     def to_dict(self):
         contents = [el.content for el in self.item]
+        items = [(el.content, el.id) for el in self.item]
+
         return {
             "id": self.id,
             "pageId": self.pageId,
             "name": self.name,
-            "contents": contents
+            "contents": contents,
+            "items": items,
         }
