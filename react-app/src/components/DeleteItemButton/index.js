@@ -9,9 +9,10 @@ const DeleteItemButton = ({ item }) => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        await dispatch(removeItem(item));
-        history.push("/pages/");
-        history.push("/");
+        console.log(item)
+        await dispatch(removeItem(item[1]));
+        // history.push("/pages/");
+        // history.push("/");
       };
 
 

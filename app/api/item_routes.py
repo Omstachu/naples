@@ -43,8 +43,10 @@ def create_item():
 @item_routes.route('/<int:id>', methods=["POST"])
 @login_required
 def delete_item(id):
+    print(id)
     item = Item.query.get(id)
+    print("CONTENT", item.content)
     db.session.delete(item)
-    db.session.delete
+    db.session.commit()
 
     return {'Success': id}

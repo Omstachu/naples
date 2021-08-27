@@ -51,14 +51,14 @@ export const getAllItems = () => async (dispatch) => {
     }
 }
 
-export const removeItem = (item) => async (dispatch) => {
-    const response = await fetch(`/api/items/${item.id}/`, {
+export const removeItem = (itemId) => async (dispatch) => {
+    const response = await fetch(`/api/items/${itemId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        item: item,
+        item: itemId,
       }),
     });
 
@@ -84,6 +84,8 @@ export default function reducer(state = initialState, action){
     switch(action.type) {
         case GET_ITEM:
             return action.payload
+        case DELETE_ITEM:
+            return state
         case ADD_ITEM:
             return [state] // this wrong, we need to incorporate the new page into the current state
         default:

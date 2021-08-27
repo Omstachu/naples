@@ -36,11 +36,11 @@ function List(){
 
     console.log(list)
 
-    const itemContent = list.contents?.map((content, idx)=>{
+    const itemContent = list.items?.map((item)=>{
       return (
-        <li key={idx}>
-          {content}
-          {/* <DeleteItemButton /> */}
+        <li key={item[1]}>
+          {item[0]}
+          <DeleteItemButton item={item}/>
         </li>
       )
     })
