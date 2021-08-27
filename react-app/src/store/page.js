@@ -1,5 +1,7 @@
 const ADD_PAGE = 'pages/ADD_PAGE'
 const GET_PAGE = 'pages/GET_PAGE'
+const DELETE_PAGE = 'pages/DELETE_PAGE'
+
 
 const addPage = (page) => ({
     type: ADD_PAGE,
@@ -7,6 +9,11 @@ const addPage = (page) => ({
 })
 const getPage = (page) => ({
     type: GET_PAGE,
+    payload: page
+})
+
+const deletePage = (page) => ({
+    type: DELETE_PAGE,
     payload: page
 })
 
@@ -51,6 +58,31 @@ export const getAllPages = () => async (dispatch) => {
         dispatch(getPage(data));
     }
 }
+
+export const removePage = (pageId) => async (dispatch) => {
+    const response = await fetch(`/api/pages/${pageId}/delete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        item: pageId,
+      }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(deletePage(data));
+      return data;
+    } else if (response.status < 500) {
+      const data = await response.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ["An error occurred. Please try again."];
+    }
+  };
 
 const initialState = {
     page: {}

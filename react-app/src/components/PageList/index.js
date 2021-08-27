@@ -3,6 +3,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { getAllPages } from '../../store/page';
 import CreatePageForm from '../CreatePageForm';
+import DeletePageButton from '../DeletePageButton';
 
 
 function PageList(){
@@ -23,6 +24,7 @@ function PageList(){
             if (page.userId === userId){
                 return <li key={idx}>
                 <NavLink to={`/pages/${page.id}`} >{page.name}</NavLink>
+                <DeletePageButton pageId={page.id}/>
             </li>
             } else {
                 return null

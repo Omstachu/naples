@@ -12,7 +12,6 @@ const DeleteListButton = ({ listId, pageId }) => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        console.log(listId)
         await dispatch(removeList(listId));
         history.push(`/pages/${pageId}`)
     };
