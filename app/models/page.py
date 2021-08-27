@@ -11,7 +11,7 @@ class Page(db.Model):
     name = db.Column(db.String(40))
 
     user = relationship("User")
-    list = relationship("List")
+    list = relationship("List", cascade="all,delete")
 
     def to_dict(self):
         lists = [el.to_dict() for el in self.list]

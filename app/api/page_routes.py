@@ -42,3 +42,14 @@ def create_page():
             "lists": page.to_dict()["lists"]
         }
     return page
+
+@page_routes.route('/<int:id>/delete', methods=["POST"])
+@login_required
+def delete_page(id):
+    print(id)
+    page = Page.query.get(id)
+    # print("CONTENT", page.content)
+    db.session.delete(page)
+    db.session.commit()
+
+    return {'Success': id}
