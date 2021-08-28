@@ -1,6 +1,7 @@
 const ADD_PAGE = 'pages/ADD_PAGE'
 const GET_PAGE = 'pages/GET_PAGE'
 const DELETE_PAGE = 'pages/DELETE_PAGE'
+const EDIT_PAGE = '/pages/EDIT_PAGE'
 
 
 const addPage = (page) => ({
@@ -16,6 +17,12 @@ const deletePage = (page) => ({
     type: DELETE_PAGE,
     payload: page
 })
+const editPage = (page) => ({
+    type: EDIT_PAGE,
+    payload: page
+})
+
+
 
 export const createPage = (userId, name) => async (dispatch) => {
     let formData = new FormData()
@@ -56,6 +63,30 @@ export const getAllPages = () => async (dispatch) => {
     if (res.ok) {
         const data = await res.json();
         dispatch(getPage(data));
+    }
+}
+
+export const updatePageName = (page) => async (dispatch) => {
+    let pageId = page.id
+    let formData = new FormData()
+    formData.append("pageId", pageId)
+    formData.append("name", page.name)
+    const res = await fetch(`/api/pages/${pageId}/edit`,{
+        method: "POST",
+        body: formData,
+    })
+
+    if (res.ok) {
+      await res.json();
+      dispatch(editPage(page));
+      return null;
+    } else if (res.status < 500) {
+      const data = await res.json();
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ["An error occurred. Please try again."];
     }
 }
 

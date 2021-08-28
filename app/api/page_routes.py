@@ -43,6 +43,18 @@ def create_page():
         }
     return page
 
+@page_routes.route('/<int:id>/edit', methods=["POST"])
+@login_required
+def edit_page_name(id):
+    name = request.form["name"]
+    if len(name) <= 40:
+        page = Page.query.get(id)
+        page.name = name
+        db.session.commit()
+        return {'Success': 'Success!'}
+    return {'failure':"It is over 40"}
+
+
 @page_routes.route('/<int:id>/delete', methods=["POST"])
 @login_required
 def delete_page(id):
