@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import CreateItemForm from '../CreateItemForm';
 import DeleteItemButton from '../DeleteItemButton';
 import DeleteListButton from '../DeleteListButton';
+import EditListForm from '../EditListForm';
+import EditItemForm from '../EditItemForm';
 import { getOneList } from '../../store/list';
 
 
@@ -35,12 +37,15 @@ function List(){
         return null;
     }
 
-    console.log(list)
-
     const itemContent = list.items?.map((item)=>{
+      item = {
+        content: item[0],
+        id: item[1]
+      }
       return (
-        <li key={item[1]}>
-          {item[0]}
+        <li key={item.id}>
+          {item.content}
+          <EditItemForm item={item}/>
           <DeleteItemButton item={item}/>
         </li>
       )
@@ -50,6 +55,7 @@ function List(){
         <ul>
         <div>
           <h2>{list.name}</h2>
+          <EditListForm list={list}/>
           <DeleteListButton listId={listId} pageId={pageId}/>
         </div>
 

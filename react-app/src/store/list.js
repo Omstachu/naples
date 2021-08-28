@@ -1,6 +1,7 @@
 const ADD_LIST = 'lists/ADD_LIST'
 const GET_LIST = 'lists/GET_LIST'
-const DELETE_LIST = 'lists/GET_LIST'
+const EDIT_LIST = 'lists/EDIT_LIST'
+const DELETE_LIST = 'lists/DELETE_LIST'
 
 const addList = (list) => ({
     type: ADD_LIST,
@@ -13,6 +14,11 @@ const getList = (list) => ({
 
 const deleteList = (list) => ({
     type: DELETE_LIST,
+    payload: list
+})
+
+const editList = (list) => ({
+    type: EDIT_LIST,
     payload: list
 })
 
@@ -60,6 +66,32 @@ export const getOneList = (listId) => async (dispatch) => {
         dispatch(getList(data));
     }
 }
+
+export const updateListName = (list) => async (dispatch) => {
+    let listId = list.id
+    let formData = new FormData()
+    formData.append("listId", listId)
+    formData.append("name", list.name)
+    const res = await fetch(`/api/lists/${listId}/edit`,{
+        method: "POST",
+        body: formData,
+    })
+
+    if (res.ok) {
+        await res.json();
+        dispatch(editList(list));
+        return null;
+      } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+          return data.errors;
+        }
+      } else {
+        return ["An error occurred. Please try again."];
+      }
+
+}
+
 
 export const removeList = (listId) => async (dispatch) => {
     const response = await fetch(`/api/lists/${listId}/delete`, {

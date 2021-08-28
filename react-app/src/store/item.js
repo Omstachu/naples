@@ -1,5 +1,6 @@
 const ADD_ITEM = 'items/ADD_ITEM'
 const GET_ITEM = 'items/GET_ITEM'
+const EDIT_ITEM = 'items/EDIT_ITEM'
 const DELETE_ITEM = 'items/DELETE_ITEM'
 
 const addItem = (item) => ({
@@ -15,6 +16,10 @@ const deleteItem = (item) => ({
     payload: item
 })
 
+const editItem = (item) => ({
+    type: EDIT_ITEM,
+    payload: item
+})
 
 export const createItem = (listId, content) => async (dispatch) => {
     let formData = new FormData()
@@ -49,6 +54,32 @@ export const getAllItems = () => async (dispatch) => {
         const data = await res.json();
         dispatch(getItem(data));
     }
+}
+
+export const updateItem = (item) => async(dispatch) => {
+    let itemId = item.id
+    let formData = new FormData();
+    formData.append("itemId", itemId)
+    formData.append("content", item.content)
+
+    const response = await fetch(`/api/items/${itemId}/edit`, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        await response.json();
+        dispatch(editItem(item));
+        return null;
+      } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+          return data.errors;
+        }
+      } else {
+        return ["An error occurred. Please try again."];
+      }
+
 }
 
 export const removeItem = (itemId) => async (dispatch) => {
