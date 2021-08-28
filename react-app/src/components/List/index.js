@@ -10,44 +10,16 @@ import { getOneList } from '../../store/list';
 
 
 function List(){
-    // const [list, setList] = useState({});
+
+    const [test, setTest] = useState(true)
     const { listId }  = useParams();
-    // const [hideEditForm, setHideEditForm] = useState(true)
-    // const [updatePage, setUpdatePage] = useState(true)
     const list = useSelector(state => state.list)
     const pageId = list.pageId
     const dispatch = useDispatch()
 
-    useEffect(()=> {
-      dispatch(getOneList(listId))
-    }, [dispatch, listId])
 
-    // useEffect(() => {
-    //     if (!listId){
-    //         return;
-    //     }
-    //     (async () => {
-    //         const res = await fetch(`/api/lists/${listId}`)
-    //         const list = await res.json()
-    //         setList(list)
-    //     })()
-    // }, [listId])
-
-    // useEffect(() => {
-    //   return null
-    // }, [updatePage])
-
-    if(!list) {
-        return null;
-    }
 
     let editContent = null;
-
-    // const showEditForm = (item) => {
-    //   return (
-    //     <EditItemForm item={item}/>
-    //   )
-    // }
 
     const itemContent = list.items?.map((item)=>{
       item = {
@@ -55,24 +27,20 @@ function List(){
         id: item[1]
       }
 
-      // let editForm = null;
-      // console.log(editForm)
-
-      // if (!hideEditForm) {
-      //   editContent = <EditItemForm item={item} hideForm={() => setHideEditForm(true)}/>
-      // }
       return (
         <li key={item.id}>
           {item.content}
           {editContent}
-          <EditItemForm item={item}/>
-          {/* <button onClick={item => showEditForm(item)}>Edit</button> */}
-          {/* <button onClick={() => setHideEditForm(false)}>Edit</button> */}
-          {/* {editForm} */}
+          <EditItemForm item={item} test={()=>setTest(!test)}/>
           <DeleteItemButton item={item}/>
         </li>
       )
     })
+
+    useEffect(()=> {
+      dispatch(getOneList(listId))
+    }, [dispatch, listId, test])
+
 
     return (
         <ul>

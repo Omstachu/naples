@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
 
-const EditItemForm = ({item, hideForm}) => {
+const EditItemForm = ({item, test}) => {
     const [content, setContent] = useState("")
     const [showForm, setShowForm] = useState(false)
 
@@ -10,13 +10,15 @@ const EditItemForm = ({item, hideForm}) => {
 
     useEffect(()=>{
         setContent(item?.content)
-    }, [item])
+    }, [item, showForm])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         item.content = content
         await dispatch(updateItem(item))
         // hideForm()
+        setShowForm(!showForm)
+        test()
     }
 
     const updateContent = (e) => {
@@ -46,12 +48,21 @@ const EditItemForm = ({item, hideForm}) => {
       )
     }
 
-    // if (document.getElementById(item.id))
+    let showFormButton = null;
+
+    if (!showForm) {
+      showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
+    }
+
+    // if ((document.getElementById(`edit-toggle-button-${item.id}`) !== document.activeElement) && showForm){
+    //   setShowForm(false)
+    // }
 
     return (
       <>
       {formContent}
-      <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
+      {showFormButton}
+      {/* <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button> */}
       </>
       );
 }
