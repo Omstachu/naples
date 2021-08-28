@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
 
-const EditItemForm = ({item}) => {
+const EditItemForm = ({item, hideForm}) => {
     const [content, setContent] = useState("")
+    const [showForm, setShowForm] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -23,20 +24,35 @@ const EditItemForm = ({item}) => {
         setContent(content)
     }
 
-    return (
+    let formContent = null;
+
+    if (showForm){
+      formContent = (
+        <>
         <form onSubmit={handleSubmit}>
-          <input
-            placeholder="Content"
-            type="text"
-            value={content}
-            onChange={updateContent}
-            maxLength="40"
-          />
-          {/* <div className="charcounter_description">Characters Remaining : {140 - description.length}</div> */}
-          <button type="submit">
-            Confirm
-          </button>
+
+        <input
+              placeholder="Content"
+              type="text"
+              value={content}
+              onChange={updateContent}
+              maxLength="40"
+        />
+        <button type="submit">
+              Confirm
+            </button>
         </form>
+        </>
+      )
+    }
+
+    // if (document.getElementById(item.id))
+
+    return (
+      <>
+      {formContent}
+      <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
+      </>
       );
 }
 
