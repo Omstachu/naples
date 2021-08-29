@@ -3,7 +3,7 @@ import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createItem } from '../../store/item';
 
-function CreateItemForm({listId, hideForm}){
+function CreateItemForm({listId, hideForm, refresher}){
     const [itemContent, setItemContent] = useState("")
     const [showForm, setShowForm] = useState(false)
 
@@ -15,8 +15,9 @@ function CreateItemForm({listId, hideForm}){
         // console.log("userId and pageContent----------------", userId, pageContent)
         await dispatch(createItem(listId, itemContent))
         setShowForm(!showForm)
-        history.push('/')
-        history.push(`/lists/${listId}`)
+        // history.push('/')
+        // history.push(`/lists/${listId}`)
+        refresher()
     }
 
     const updateItemContent = e => {

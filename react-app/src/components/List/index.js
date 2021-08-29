@@ -58,7 +58,7 @@ function List(){
           {itemContent}
         </ul>
         <div>
-        <CreateItemForm listId={listId} />
+        <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
         </div>
 
       </ul>

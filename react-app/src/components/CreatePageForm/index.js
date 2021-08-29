@@ -5,6 +5,7 @@ import { createPage} from '../../store/page';
 
 function CreatePageForm({userId, refresher}){
     const [pageName, setPageName] = useState("")
+    const [showForm, setShowForm] = useState(false)
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -14,7 +15,7 @@ function CreatePageForm({userId, refresher}){
         const res = await dispatch(createPage(userId, pageName))
         history.push(`/pages/${res.data.id}`)
         setPageName("")
-        // refresher()
+        refresher()
     }
 
     const updatePageName = e => {
@@ -22,18 +23,36 @@ function CreatePageForm({userId, refresher}){
         setPageName(name)
     }
 
+    let formContent = null;
+
+    if(showForm){
+        formContent = (
+            <>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        placeholder="Page Name"
+                        type="text"
+                        value={pageName}
+                        onChange={updatePageName}
+                        maxLength="40"
+                    />
+                    <button>New Page</button>
+                    <button onClick={() => setShowForm(!showForm)}>Cancel</button>
+                </form>
+            </>
+        )
+    }
+
+    let showFormButton = null;
+
+    if (!showForm) {
+        showFormButton = <button onClick={() => setShowForm(!showForm)}>New Page</button>
+      }
+
       return (
         <div>
-        <form onSubmit={handleSubmit}>
-        <input
-            placeholder="Page Name"
-            type="text"
-            value={pageName}
-            onChange={updatePageName}
-            maxLength="40"
-        />
-        <button>New Page</button>
-        </form>
+            {formContent}
+            {showFormButton}
         </div>
     )
 }
