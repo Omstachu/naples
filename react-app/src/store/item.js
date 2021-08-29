@@ -54,6 +54,8 @@ export const getAllItems = () => async (dispatch) => {
         const data = await res.json();
         dispatch(getItem(data));
     }
+
+
 }
 
 export const updateItem = (item) => async(dispatch) => {
@@ -114,7 +116,9 @@ const initialState = {
 export default function reducer(state = initialState, action){
     switch(action.type) {
         case GET_ITEM:
-            return action.payload
+          const newState = { ...state };
+          newState[action.payload.id] = action.payload;
+          return action.payload
         case DELETE_ITEM:
             return state
         case ADD_ITEM:

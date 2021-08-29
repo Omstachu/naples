@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom"
 import { removeList } from "../../store/list";
 
 
-const DeleteListButton = ({ listId, pageId }) => {
+const DeleteListButton = ({ listId, pageId, refresher }) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -13,7 +13,8 @@ const DeleteListButton = ({ listId, pageId }) => {
     const handleDelete = async (e) => {
         e.preventDefault();
         await dispatch(removeList(listId));
-        history.push(`/pages/${pageId}`)
+        // history.push(`/pages/${pageId}`)
+        refresher()
     };
 
 

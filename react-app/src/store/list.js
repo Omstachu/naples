@@ -56,6 +56,8 @@ export const getAllLists = () => async (dispatch) => {
         const data = await res.json();
         dispatch(getList(data));
     }
+
+
 }
 
 export const getOneList = (listId) => async (dispatch) => {
@@ -63,8 +65,11 @@ export const getOneList = (listId) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
+        console.log("<A<D<AD<A<DA<DA<DA<D", data)
         dispatch(getList(data));
     }
+
+
 }
 
 export const updateListName = (list) => async (dispatch) => {
