@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
 
-const EditItemForm = ({item, test}) => {
+const EditItemForm = ({item, refresher}) => {
     const [content, setContent] = useState("")
     const [showForm, setShowForm] = useState(false)
 
@@ -18,7 +18,7 @@ const EditItemForm = ({item, test}) => {
         await dispatch(updateItem(item))
         // hideForm()
         setShowForm(!showForm)
-        test()
+        refresher()
     }
 
     const updateContent = (e) => {

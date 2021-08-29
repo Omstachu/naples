@@ -11,27 +11,31 @@ import { getOneList } from '../../store/list';
 
 function List(){
 
-    const [test, setTest] = useState(true)
+    const [refresh, setRefresh] = useState(true)
     const { listId }  = useParams();
     const list = useSelector(state => state.list)
     const pageId = list.pageId
     const dispatch = useDispatch()
 
-
-
     let editContent = null;
 
-    const itemContent = list.items?.map((item)=>{
+    console.log("ITEMS", list)
+    let listItems = null
+    if (list?.items) listItems = Object.values(list.items)
+    console.log(listItems)
+
+    // const itemContent = list.items?.map((item)=>{
+    const itemContent = listItems?.map((item)=>{
       item = {
-        content: item[0],
-        id: item[1]
+        content: item[1],
+        id: item[0]
       }
 
       return (
         <li key={item.id}>
           {item.content}
           {editContent}
-          <EditItemForm item={item} test={()=>setTest(!test)}/>
+          <EditItemForm item={item} refresher={()=>setRefresh(!refresh)}/>
           <DeleteItemButton item={item}/>
         </li>
       )
@@ -39,7 +43,7 @@ function List(){
 
     useEffect(()=> {
       dispatch(getOneList(listId))
-    }, [dispatch, listId, test])
+    }, [dispatch, listId, refresh])
 
 
     return (
