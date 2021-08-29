@@ -43,6 +43,7 @@ def create_list():
             "contents": list.to_dict()["contents"],
 
         }
+
     return list
 
 @list_routes.route('/<int:id>/edit', methods=["POST"])

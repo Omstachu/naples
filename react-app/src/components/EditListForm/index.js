@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateListName } from "../../store/list";
 
-const EditListForm = ({list}) => {
+const EditListForm = ({list, refresher}) => {
     const [name, setName] = useState("")
 
     const dispatch = useDispatch()
@@ -16,6 +16,7 @@ const EditListForm = ({list}) => {
         list.name = name
         await dispatch(updateListName(list))
         // hideForm()
+        refresher()
     }
 
     const updateName = (e) => {

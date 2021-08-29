@@ -3,7 +3,7 @@ import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createPage} from '../../store/page';
 
-function CreatePageForm({userId, hideForm}){
+function CreatePageForm({userId, refresher}){
     const [pageName, setPageName] = useState("")
 
     const dispatch = useDispatch()
@@ -13,6 +13,8 @@ function CreatePageForm({userId, hideForm}){
         e.preventDefault()
         const res = await dispatch(createPage(userId, pageName))
         history.push(`/pages/${res.data.id}`)
+        setPageName("")
+        // refresher()
     }
 
     const updatePageName = e => {

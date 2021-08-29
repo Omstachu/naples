@@ -9,6 +9,7 @@ item_routes = Blueprint('items', __name__)
 @item_routes.route('/')
 @login_required
 def items():
+    # items = Item.query.order._by(Item.id).all()
     items = Item.query.all()
     return {"items": [item.to_dict() for item in items]}
 

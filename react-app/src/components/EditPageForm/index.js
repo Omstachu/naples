@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatePageName } from "../../store/page";
 
-const EditPageForm = ({page}) => {
+const EditPageForm = ({page, refresher}) => {
     const [name, setName] = useState("")
 
     const dispatch = useDispatch()
@@ -15,8 +15,8 @@ const EditPageForm = ({page}) => {
         e.preventDefault();
         page.name = name
         await dispatch(updatePageName(page))
-        // hideForm()
-    }
+        refresher()
+      }
 
     const updateName = (e) => {
         const name = e.target.value;

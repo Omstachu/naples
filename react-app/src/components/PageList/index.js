@@ -9,7 +9,7 @@ import DeletePageButton from '../DeletePageButton';
 
 function PageList(){
     // const [pages, setPages] = useState({});
-
+    const [refresh, setRefresh] = useState(true)
     const pages = useSelector(state => state.page)
     const userId = useSelector((state) => state.session.user.id);
 
@@ -17,16 +17,22 @@ function PageList(){
 
     useEffect(() => {
         dispatch(getAllPages())
-    }, [dispatch])
+    }, [dispatch, refresh])
 
+    let pageList = []
+
+    if (pages){
+        pageList = Object.values(pages)
+    }
 
     const pageNames = (
-        pages.pages?.map((page,idx) =>{
+        pageList.map((page,idx) =>{
+        // pages.pages?.map((page,idx) =>{
             if (page.userId === userId){
                 return <li key={idx}>
                 <NavLink to={`/pages/${page.id}`} >{page.name}</NavLink>
-                <EditPageForm page={page}/>
-                <DeletePageButton pageId={page.id}/>
+                <EditPageForm page={page} refresher={()=>setRefresh(!refresh)}/>
+                <DeletePageButton pageId={page.id} refresher={()=>setRefresh(!refresh)}/>
             </li>
             } else {
                 return null
@@ -42,7 +48,7 @@ function PageList(){
         <ul>
           {pageNames}
         </ul>
-        <CreatePageForm userId={userId}/>
+        <CreatePageForm userId={userId} refresher={()=>setRefresh(!refresh)}/>
         </ul>
     )
 }

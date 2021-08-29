@@ -3,8 +3,9 @@ import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createList } from '../../store/list';
 
-function CreateListForm({pageId, hideForm}){
+function CreateListForm({pageId, hideForm, refresher}){
     const [listName, setListName] = useState("")
+    const [showForm, setShowForm] = useState(false)
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -13,7 +14,10 @@ function CreateListForm({pageId, hideForm}){
         e.preventDefault()
         // console.log("userId and pageName----------------", userId, pageName)
         const res = await dispatch(createList(pageId, listName))
-        history.push(`/lists/${res.data.id}`)
+        // history.push(`/lists/${res.data.id}`)
+        setListName("")
+        setShowForm(!showForm)
+        refresher()
     }
 
     const updateListName = e => {
@@ -21,19 +25,39 @@ function CreateListForm({pageId, hideForm}){
         setListName(name)
     }
 
+    let formContent = null;
+
+    if (showForm){
+        formContent = (
+            <>
+            <form onSubmit={handleSubmit}>
+            <input
+                placeholder="Page Name"
+                type="text"
+                value={listName}
+                onChange={updateListName}
+                maxLength="40"
+            />
+            <button>Confirm</button>
+            <button onClick={() => setShowForm(!showForm)}>Cancel</button>
+            </form>
+            </>
+        )
+    }
+
+    let showFormButton = null;
+
+    if (!showForm) {
+        showFormButton = <button onClick={() => setShowForm(!showForm)}>New List</button>
+      }
+
     return (
+
         <div>
-        <form onSubmit={handleSubmit}>
-        <input
-            placeholder="Page Name"
-            type="text"
-            value={listName}
-            onChange={updateListName}
-            maxLength="40"
-        />
-        <button>New List</button>
-        </form>
+            {formContent}
+            {showFormButton}
         </div>
+
     )
 
 }
