@@ -18,8 +18,15 @@ function Page(){
         })()
     }, [pageId])
 
+
+    let lists = []
+
+    if (page.lists) {
+      lists = Object.values(page.lists)
+    }
     const listNames = (
-      page.lists?.map((list,idx) =>{
+      // page.lists?.map((list,idx) =>{
+      lists?.map((list,idx) =>{
          return <li key={idx}>
            <NavLink to={`/lists/${list.id}`}>{list.name}</NavLink>
          </li>

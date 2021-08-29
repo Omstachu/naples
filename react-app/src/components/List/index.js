@@ -20,9 +20,9 @@ function List(){
     let editContent = null;
 
     console.log("ITEMS", list)
+
     let listItems = null
     if (list?.items) listItems = Object.values(list.items)
-    console.log(listItems)
 
     // const itemContent = list.items?.map((item)=>{
     const itemContent = listItems?.map((item)=>{

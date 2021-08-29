@@ -14,7 +14,8 @@ class Page(db.Model):
     list = relationship("List", cascade="all,delete")
 
     def to_dict(self):
-        lists = [el.to_dict() for el in self.list]
+        # lists = [el.to_dict() for el in self.list]
+        lists = {el.id:el.to_dict() for el in self.list}
         return {
             "id": self.id,
             "name": self.name,
