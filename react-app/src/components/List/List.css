@@ -1,0 +1,13 @@
+.list-title {
+    font-family: 'BioRhyme', serif;
+    font-size: xx-large;
+}
+
+.item-button-container {
+    display: flex;
+}
+
+.item-container {
+    display: flex;
+    justify-content: center;
+}

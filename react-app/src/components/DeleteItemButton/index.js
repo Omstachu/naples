@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState }from "react";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../../store/item";
 
 const DeleteItemButton = ({ item, refresher }) => {
     const dispatch = useDispatch();
+    // const [showConfirmation, setShowConfirmation] = useState(true)
 
     const handleDelete = async (e) => {
         e.preventDefault();
@@ -14,6 +15,11 @@ const DeleteItemButton = ({ item, refresher }) => {
         // history.push("/");
       };
 
+    // let deleteConfirmation = null;
+
+    // if (showConfirmation){
+    //     deleteConfirmation =
+    // }
 
     return (
     <form onSubmit={handleDelete}>

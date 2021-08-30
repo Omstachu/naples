@@ -41,8 +41,8 @@ const EditItemForm = ({item, refresher}) => {
               maxLength="40"
         />
         <button type="submit">
-              Confirm
-            </button>
+          Confirm
+        </button>
         </form>
         </>
       )

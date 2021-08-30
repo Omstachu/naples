@@ -7,6 +7,7 @@ import DeleteListButton from '../DeleteListButton';
 import EditListForm from '../EditListForm';
 import EditItemForm from '../EditItemForm';
 import { getOneList } from '../../store/list';
+import "./List.css"
 
 
 function List(){
@@ -32,12 +33,14 @@ function List(){
       }
 
       return (
-        <li key={item.id}>
+        <div key={item.id}>
           {item.content}
           {editContent}
-          <EditItemForm item={item} refresher={()=>setRefresh(!refresh)}/>
-          <DeleteItemButton item={item} refresher={()=>setRefresh(!refresh)}/>
-        </li>
+          <div className="item-button-container">
+            <EditItemForm item={item} refresher={()=>setRefresh(!refresh)}/>
+            <DeleteItemButton item={item} refresher={()=>setRefresh(!refresh)}/>
+          </div>
+        </div>
       )
     })
 
@@ -49,14 +52,14 @@ function List(){
     return (
         <ul>
         <div>
-          <h2>{list.name}</h2>
+          <h2 className="list-title">{list.name}</h2>
           {/* <EditListForm list={list}/>
           <DeleteListButton listId={listId} pageId={pageId}/> */}
         </div>
 
-        <ul>
+        <div>
           {itemContent}
-        </ul>
+        </div>
         <div>
         <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
         </div>
