@@ -33,8 +33,11 @@ function List(){
       }
 
       return (
-        <div key={item.id}>
+        <div className="item-container" key={item.id}>
+          <div className="item-content">
+
           {item.content}
+          </div>
           {editContent}
           <div className="item-button-container">
             <EditItemForm item={item} refresher={()=>setRefresh(!refresh)}/>
@@ -51,16 +54,16 @@ function List(){
 
     return (
         <ul>
-        <div>
+        <div >
           <h2 className="list-title">{list.name}</h2>
           {/* <EditListForm list={list}/>
           <DeleteListButton listId={listId} pageId={pageId}/> */}
         </div>
 
-        <div>
+        <div className="item-list-container">
           {itemContent}
         </div>
-        <div>
+        <div className="item-create-button">
         <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
         </div>
 

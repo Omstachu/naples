@@ -1,13 +1,42 @@
 .list-title {
+    display: flex;
     font-family: 'BioRhyme', serif;
     font-size: xx-large;
+    justify-content: center;
 }
 
 .item-button-container {
     display: flex;
+    /* justify-content: flex-end; */
+    /* align-items: flex-end; */
 }
 
 .item-container {
     display: flex;
+    justify-content: space-between;
+    font-family: 'Proza Libre', sans-serif;
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+.item-list-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.item-content {
+    display: flex;
+    position: relative;
+    text-align: left;
+}
+
+.item-create-button {
+    display: flex;
+    position: relative;
     justify-content: center;
+    margin: auto;
+    margin-top: 15px;
+    padding-top: 5px;
 }
