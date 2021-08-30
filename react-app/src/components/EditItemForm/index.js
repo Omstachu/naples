@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
 import "./EditItemForm.css"
-import deleteButton from '../images/delete-button.png'
+import editButton from '../images/edit-pencil.png'
+import confirmButtonImage from '../images/edit-pencil.png'
+import cancelButtonImage from '../images/cancel-button-circle.png'
 
 const EditItemForm = ({item, refresher}) => {
     const [content, setContent] = useState("")
@@ -43,7 +45,10 @@ const EditItemForm = ({item, refresher}) => {
               maxLength="40"
         />
         <button className="confirm-button" type="submit">
-          Confirm
+        <img className="confirm-button-image" src={confirmButtonImage} alt="confirm-button"/>
+        </button>
+        <button className="cancel-button">
+        <img className="cancel-button-image" src={cancelButtonImage} alt="cancel-button"/>
         </button>
         </form>
         </>
@@ -55,7 +60,7 @@ const EditItemForm = ({item, refresher}) => {
     if (!showForm) {
       // showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
       showFormButton = <button className="edit-button" onClick={() => setShowForm(!showForm)}>
-        <img className="edit-button-image" src={deleteButton} alt="edit-button"/>
+        <img className="edit-button-image" src={editButton} alt="edit-button"/>
       </button>
     }
 

@@ -1,6 +1,9 @@
 import React, {useState }from "react";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../../store/item";
+import "./DeleteItemButton.css"
+import deleteButtonImage from "../images/trash-can-black.png"
+
 
 const DeleteItemButton = ({ item, refresher }) => {
     const dispatch = useDispatch();
@@ -23,8 +26,8 @@ const DeleteItemButton = ({ item, refresher }) => {
 
     return (
     <form onSubmit={handleDelete}>
-        <button type="submit">
-        Delete
+        <button className="delete-button" type="submit">
+        <img className="delete-button-image" src={deleteButtonImage} alt="delete-button"/>
         </button>
     </form>
     );
