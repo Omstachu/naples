@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
+import "./EditItemForm.css"
+import deleteButton from '../images/delete-button.png'
 
 const EditItemForm = ({item, refresher}) => {
     const [content, setContent] = useState("")
@@ -33,14 +35,14 @@ const EditItemForm = ({item, refresher}) => {
         <>
         <form onSubmit={handleSubmit}>
 
-        <input
+        <input className="item-input"
               placeholder="Content"
               type="text"
               value={content}
               onChange={updateContent}
               maxLength="40"
         />
-        <button type="submit">
+        <button className="confirm-button" type="submit">
           Confirm
         </button>
         </form>
@@ -52,7 +54,9 @@ const EditItemForm = ({item, refresher}) => {
 
     if (!showForm) {
       // showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
-      showFormButton = <button onClick={() => setShowForm(!showForm)}>Edit</button>
+      showFormButton = <button className="edit-button" onClick={() => setShowForm(!showForm)}>
+        <img className="edit-button-image" src={deleteButton} alt="edit-button"/>
+      </button>
     }
 
     // if ((document.getElementById(`edit-toggle-button-${item.id}`) !== document.activeElement) && showForm){
