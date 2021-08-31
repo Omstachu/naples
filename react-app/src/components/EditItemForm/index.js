@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
+import "./EditItemForm.css"
+import editButton from '../images/edit-pencil.png'
+import confirmButtonImage from '../images/edit-pencil.png'
+import cancelButtonImage from '../images/cancel-button-circle.png'
 
 const EditItemForm = ({item, refresher}) => {
     const [content, setContent] = useState("")
@@ -21,6 +25,13 @@ const EditItemForm = ({item, refresher}) => {
         refresher()
     }
 
+    const handleFormToggle = async (e) => {
+      e.preventDefault();
+      setShowForm(!showForm)
+
+    }
+
+
     const updateContent = (e) => {
         const content = e.target.value;
         setContent(content)
@@ -33,16 +44,19 @@ const EditItemForm = ({item, refresher}) => {
         <>
         <form onSubmit={handleSubmit}>
 
-        <input
+        <input className="item-input"
               placeholder="Content"
               type="text"
               value={content}
               onChange={updateContent}
               maxLength="40"
         />
-        <button type="submit">
-              Confirm
-            </button>
+        <button className="confirm-button" type="submit">
+        <img className="confirm-button-image" src={confirmButtonImage} alt="confirm-button"/>
+        </button>
+        <button className="cancel-button" onClick={handleFormToggle}>
+        <img className="cancel-button-image" src={cancelButtonImage} alt="cancel-button"/>
+        </button>
         </form>
         </>
       )
@@ -52,7 +66,9 @@ const EditItemForm = ({item, refresher}) => {
 
     if (!showForm) {
       // showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
-      showFormButton = <button onClick={() => setShowForm(!showForm)}>Edit</button>
+      showFormButton = <button className="edit-button" onClick={handleFormToggle}>
+        <img className="edit-button-image" src={editButton} alt="edit-button"/>
+      </button>
     }
 
     // if ((document.getElementById(`edit-toggle-button-${item.id}`) !== document.activeElement) && showForm){

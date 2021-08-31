@@ -1,0 +1,44 @@
+.create-button {
+    outline: none;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    /* border-radius: 50px;
+    box-shadow: 4px 4px 4px black; */
+}
+
+.create-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 50px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.create-form-input {
+    position: relative;
+    margin-top: 20px;
+    font-family: 'Proza Libre', sans-serif;
+    border: none;
+    border-bottom: 2px solid black;
+    /* right: 250px;
+    width: 400px; */
+}
+
+.create-form-input:focus {
+    position: relative;
+    font-family: 'Proza Libre', sans-serif;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+.create-form {
+    position: relative;
+    /* width: 100%; */
+    /* background: black; */
+}

@@ -46,6 +46,7 @@ def create_item():
 @login_required
 def edit_item(id):
     #     # post form should be modified to editForm
+
     content = request.form["content"]
     if len(content) <= 40:
         item = Item.query.get(id)

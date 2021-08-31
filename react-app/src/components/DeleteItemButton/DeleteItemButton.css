@@ -1,0 +1,15 @@
+.delete-button {
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+.delete-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    box-sizing: border-box;
+}

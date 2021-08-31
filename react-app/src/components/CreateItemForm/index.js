@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createItem } from '../../store/item';
+import "./CreateItemForm.css"
+import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '../images/imgSources';
 
 function CreateItemForm({listId, hideForm, refresher}){
     const [itemContent, setItemContent] = useState("")
@@ -15,10 +17,17 @@ function CreateItemForm({listId, hideForm, refresher}){
         // console.log("userId and pageContent----------------", userId, pageContent)
         await dispatch(createItem(listId, itemContent))
         setShowForm(!showForm)
+        setItemContent("")
         // history.push('/')
         // history.push(`/lists/${listId}`)
         refresher()
     }
+
+    const handleFormToggle = async (e) => {
+        e.preventDefault();
+        setShowForm(!showForm)
+        setItemContent("")
+      }
 
     const updateItemContent = e => {
         const content = e.target.value;
@@ -30,16 +39,20 @@ function CreateItemForm({listId, hideForm, refresher}){
     if(showForm){
         formContent = (
             <>
-            <form onSubmit={handleSubmit}>
-            <input
-                placeholder="Page Content"
+            <form className="create-form" onSubmit={handleSubmit}>
+            <input className="create-form-input"
+                placeholder="enter content here"
                 type="text"
                 value={itemContent}
                 onChange={updateItemContent}
                 maxLength="40"
             />
-            <button>New Item</button>
-            <button onClick={() => setShowForm(!showForm)}>Cancel</button>
+            <button className="confirm-button">
+                <img className="confirm-button-image" src={confirmButtonImage} alt="create button"/>
+            </button>
+            <button className="cancel-button" onClick={handleFormToggle}>
+                <img className="cancel-button-image" src={cancelButtonImage} alt="create button"/>
+            </button>
             </form>
             </>
         )
@@ -49,7 +62,9 @@ function CreateItemForm({listId, hideForm, refresher}){
 
     if (!showForm) {
         // showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
-        showFormButton = <button onClick={() => setShowForm(!showForm)}>New Item</button>
+        showFormButton = <button className="create-button" onClick={handleFormToggle}>
+            <img className="create-button-image" src={createItemButtonImage} alt="create button"/>
+        </button>
     }
 
     return (

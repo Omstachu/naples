@@ -3,10 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import CreateItemForm from '../CreateItemForm';
 import DeleteItemButton from '../DeleteItemButton';
-import DeleteListButton from '../DeleteListButton';
-import EditListForm from '../EditListForm';
 import EditItemForm from '../EditItemForm';
 import { getOneList } from '../../store/list';
+import "./List.css"
 
 
 function List(){
@@ -31,13 +30,24 @@ function List(){
         id: item[0]
       }
 
+
+
       return (
-        <li key={item.id}>
+        <div className="item-container" key={item.id}>
+          <div className="item-content">
+
           {item.content}
+          </div>
           {editContent}
-          <EditItemForm item={item} refresher={()=>setRefresh(!refresh)}/>
-          <DeleteItemButton item={item} refresher={()=>setRefresh(!refresh)}/>
-        </li>
+          <div className="item-button-container">
+            <EditItemForm item={item}
+            refresher={()=>{
+              setRefresh(!refresh)
+            }}
+            />
+            <DeleteItemButton item={item} refresher={()=>setRefresh(!refresh)}/>
+          </div>
+        </div>
       )
     })
 
@@ -48,16 +58,16 @@ function List(){
 
     return (
         <ul>
-        <div>
-          <h2>{list.name}</h2>
+        <div >
+          <h2 className="list-title">{list.name}</h2>
           {/* <EditListForm list={list}/>
           <DeleteListButton listId={listId} pageId={pageId}/> */}
         </div>
 
-        <ul>
+        <div className="item-list-container">
           {itemContent}
-        </ul>
-        <div>
+        </div>
+        <div className="item-create-container">
         <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
         </div>
 

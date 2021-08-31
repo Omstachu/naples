@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useState }from "react";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../../store/item";
+import "./DeleteItemButton.css"
+import deleteButtonImage from "../images/trash-can-black.png"
 
-const DeleteItemButton = ({ item, refresher }) => {
+
+const DeleteItemButton = ({ item, refresher, hideDelete }) => {
     const dispatch = useDispatch();
+    // const [showConfirmation, setShowConfirmation] = useState(true)
 
     const handleDelete = async (e) => {
         e.preventDefault();
@@ -14,13 +18,28 @@ const DeleteItemButton = ({ item, refresher }) => {
         // history.push("/");
       };
 
+    // let deleteConfirmation = null;
 
-    return (
-    <form onSubmit={handleDelete}>
-        <button type="submit">
-        Delete
+    // if (showConfirmation){
+    //     deleteConfirmation =
+    // }
+
+    let deleteContent = (
+        <form onSubmit={handleDelete}>
+        <button className="delete-button" type="submit">
+        <img className="delete-button-image" src={deleteButtonImage} alt="delete-button"/>
         </button>
     </form>
+    )
+
+    if (hideDelete){
+        deleteContent = null
+    }
+
+    return (
+        <>
+            {deleteContent}
+        </>
     );
 }
 

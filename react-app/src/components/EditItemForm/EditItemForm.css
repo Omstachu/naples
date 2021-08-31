@@ -1,0 +1,48 @@
+.edit-button {
+    outline: none;
+    background: transparent;
+    border: none;
+    /* border-radius: 20px; */
+}
+
+.edit-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.confirm-button {
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+.confirm-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.cancel-button {
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+.cancel-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    box-sizing: border-box;
+}
