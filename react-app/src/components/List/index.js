@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import CreateItemForm from '../CreateItemForm';
 import DeleteItemButton from '../DeleteItemButton';
-import DeleteListButton from '../DeleteListButton';
-import EditListForm from '../EditListForm';
 import EditItemForm from '../EditItemForm';
 import { getOneList } from '../../store/list';
 import "./List.css"
@@ -13,6 +11,7 @@ import "./List.css"
 function List(){
 
     const [refresh, setRefresh] = useState(true)
+    const [hideDelete, setHideDelete] = useState(false)
     const { listId }  = useParams();
     const list = useSelector(state => state.list)
     const pageId = list.pageId
@@ -40,8 +39,12 @@ function List(){
           </div>
           {editContent}
           <div className="item-button-container">
-            <EditItemForm item={item} refresher={()=>setRefresh(!refresh)}/>
-            <DeleteItemButton item={item} refresher={()=>setRefresh(!refresh)}/>
+            <EditItemForm item={item}
+            refresher={()=>{
+              setRefresh(!refresh)
+            }}
+            />
+            <DeleteItemButton item={item} hideDelete={hideDelete} refresher={()=>setRefresh(!refresh)}/>
           </div>
         </div>
       )

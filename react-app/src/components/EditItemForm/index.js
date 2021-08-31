@@ -25,6 +25,13 @@ const EditItemForm = ({item, refresher}) => {
         refresher()
     }
 
+    const handleFormToggle = async (e) => {
+      e.preventDefault();
+      setShowForm(!showForm)
+
+    }
+
+
     const updateContent = (e) => {
         const content = e.target.value;
         setContent(content)
@@ -47,7 +54,7 @@ const EditItemForm = ({item, refresher}) => {
         <button className="confirm-button" type="submit">
         <img className="confirm-button-image" src={confirmButtonImage} alt="confirm-button"/>
         </button>
-        <button className="cancel-button">
+        <button className="cancel-button" onClick={handleFormToggle}>
         <img className="cancel-button-image" src={cancelButtonImage} alt="cancel-button"/>
         </button>
         </form>
@@ -59,7 +66,7 @@ const EditItemForm = ({item, refresher}) => {
 
     if (!showForm) {
       // showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
-      showFormButton = <button className="edit-button" onClick={() => setShowForm(!showForm)}>
+      showFormButton = <button className="edit-button" onClick={handleFormToggle}>
         <img className="edit-button-image" src={editButton} alt="edit-button"/>
       </button>
     }

@@ -19,18 +19,24 @@
     width: 50%;
     margin: auto;
     text-align: left;
+    border-bottom: 2px solid black;
+    margin: auto;
+    margin-top: 5px
 }
 
 .item-list-container {
+    position: relative;
     display: flex;
     flex-direction: column;
+    margin: auto;
     /* align-items: center; */
 }
 
 .item-content {
-    display: flex;
     position: relative;
+    display: flex;
     text-align: left;
+    top: 10px;
 }
 
 .item-create-button {

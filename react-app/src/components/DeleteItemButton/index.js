@@ -5,7 +5,7 @@ import "./DeleteItemButton.css"
 import deleteButtonImage from "../images/trash-can-black.png"
 
 
-const DeleteItemButton = ({ item, refresher }) => {
+const DeleteItemButton = ({ item, refresher, hideDelete }) => {
     const dispatch = useDispatch();
     // const [showConfirmation, setShowConfirmation] = useState(true)
 
@@ -24,12 +24,22 @@ const DeleteItemButton = ({ item, refresher }) => {
     //     deleteConfirmation =
     // }
 
-    return (
-    <form onSubmit={handleDelete}>
+    let deleteContent = (
+        <form onSubmit={handleDelete}>
         <button className="delete-button" type="submit">
         <img className="delete-button-image" src={deleteButtonImage} alt="delete-button"/>
         </button>
     </form>
+    )
+
+    if (hideDelete){
+        deleteContent = null
+    }
+
+    return (
+        <>
+            {deleteContent}
+        </>
     );
 }
 
