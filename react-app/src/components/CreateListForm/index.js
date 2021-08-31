@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createList } from '../../store/list';
-import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '../images/imgSources';
+import { confirmButtonImage, cancelButtonImage, createItemButtonImage, middleButtonImage } from '../images/imgSources';
+import "./CreateListForm.css"
 
 function CreateListForm({pageId, hideForm, refresher}){
     const [listName, setListName] = useState("")
     const [showForm, setShowForm] = useState(false)
-    const [showFormName, setShowFormName] = useState(false)
+    const [showFormName, setShowFormName] = useState(true)
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -73,14 +74,14 @@ function CreateListForm({pageId, hideForm, refresher}){
 
     if (!showForm) {
         showFormButton = <button className="create-button" onClick={() => setShowForm(!showForm)}>
-            <img className="create-button-image" src={createItemButtonImage} alt="create button"/>
-            {formName}
+            <img className="create-button-image list-page" src={createItemButtonImage} alt="create button"/>
+            {/* {formName} */}
         </button>
       }
 
     return (
 
-        <div>
+        <div className="create-list-button-div">
             {formContent}
             {showFormButton}
         </div>
