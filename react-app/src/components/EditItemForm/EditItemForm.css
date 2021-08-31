@@ -3,46 +3,52 @@
     background: transparent;
     border: none;
     /* border-radius: 20px; */
+    box-sizing: border-box;
 }
 
 .edit-button-image {
     position: relative;
     width: 30px;
     height: 30px;
-    position: relative;
     /* background: url('../images/delete-button.png') no-repeat center top; */
     cursor: pointer;
     box-sizing: border-box;
+    box-shadow: -1px -1px 1px black;
 }
 
-.confirm-button {
+.edit-button-image:hover {
+    box-shadow: -1px -1px 1px black;
+    height: 40px;
+    width: 40px;
+    transition-duration: .1s;
+}
+
+.edit-item-input {
+    position: relative;
+    font-family: 'Proza Libre', sans-serif;
+    background: #fdaeae;
+    /* border: none; */
+    /* z-index: 2; */
+    /* height: 100%; */
+    border: 2px solid #ff8daa;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+    bottom: 5px;
+    box-shadow: 1px 1px 1px #f6e2b3;
+}
+
+.edit-item-input:focus {
     outline: none;
-    background: transparent;
-    border: none;
+    border: 2px solid #ff8daa;
+    box-shadow: 1px 1px 1px #f6e2b3;
+    background: #f6e2b3;
+    color: #7e6651
 }
 
-.confirm-button-image {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    /* background: url('../images/delete-button.png') no-repeat center top; */
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-.cancel-button {
-    outline: none;
-    background: transparent;
-    border: none;
-}
-
-.cancel-button-image {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    /* background: url('../images/delete-button.png') no-repeat center top; */
-    cursor: pointer;
-    box-sizing: border-box;
+.edit-item-form {
+    /* position: relative; */
+    /* display: flex; */
+    /* justify-content: start; */
+    /* z-index: 2; */
 }

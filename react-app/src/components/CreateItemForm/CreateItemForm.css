@@ -19,6 +19,13 @@
     box-shadow: 2px 2px 2px black;
 }
 
+.create-button-image:hover {
+    box-shadow: -2px -2px 2px black;
+    height: 40px;
+    width: 40px;
+    transition-duration: .1s;
+}
+
 .create-form-input {
     position: relative;
     margin-top: 20px;
@@ -41,4 +48,11 @@
     position: relative;
     /* width: 100%; */
     /* background: black; */
+}
+
+.create-form-button-name {
+    position: relative;
+    display: flex;
+    font-family: 'Inknut Antiqua', serif;
+    bottom: 20px;
 }

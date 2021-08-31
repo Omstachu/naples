@@ -16,7 +16,6 @@ function List(){
     const pageId = list.pageId
     const dispatch = useDispatch()
 
-    let editContent = null;
 
     console.log("ITEMS", list)
 
@@ -38,7 +37,6 @@ function List(){
 
           {item.content}
           </div>
-          {editContent}
           <div className="item-button-container">
             <EditItemForm item={item}
             refresher={()=>{
@@ -57,7 +55,7 @@ function List(){
 
 
     return (
-        <ul>
+        <div>
         <div >
           <h2 className="list-title">{list.name}</h2>
           {/* <EditListForm list={list}/>
@@ -67,11 +65,11 @@ function List(){
         <div className="item-list-container">
           {itemContent}
         </div>
-        <div className="item-create-container">
-        <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
-        </div>
+          <div className="item-create-container">
+          <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
+          </div>
 
-      </ul>
+      </div>
     )
 }
 

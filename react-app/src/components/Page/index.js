@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import CreateListForm from '../CreateListForm'
 import DeleteListButton from '../DeleteListButton';
 import EditListForm from '../EditListForm';
+import "./Page.css"
 
 function Page(){
     const [refresh, setRefresh] = useState(true)
@@ -30,10 +31,14 @@ function Page(){
     const listNames = (
       // page.lists?.map((list,idx) =>{
       lists?.map((list,idx) =>{
-         return <div key={idx}>
-           <NavLink to={`/lists/${list.id}`}>{list.name}</NavLink>
-           <EditListForm list={list} refresher={()=>setRefresh(!refresh)}/>
-           <DeleteListButton listId={list.id} pageId={pageId} refresher={()=>setRefresh(!refresh)}/>
+         return <div className="list-container" key={idx}>
+           <div>
+            <NavLink className="list-name" to={`/lists/${list.id}`}>{list.name} </NavLink>
+           </div>
+           <div className="list-button-container">
+            <EditListForm list={list} refresher={()=>setRefresh(!refresh)}/>
+            <DeleteListButton listId={list.id} pageId={pageId} refresher={()=>setRefresh(!refresh)}/>
+           </div>
          </div>
       })
     )

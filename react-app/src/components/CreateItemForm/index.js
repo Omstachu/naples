@@ -8,6 +8,7 @@ import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '..
 function CreateItemForm({listId, hideForm, refresher}){
     const [itemContent, setItemContent] = useState("")
     const [showForm, setShowForm] = useState(false)
+    const [showFormName, setShowFormName] = useState(true)
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -26,6 +27,7 @@ function CreateItemForm({listId, hideForm, refresher}){
     const handleFormToggle = async (e) => {
         e.preventDefault();
         setShowForm(!showForm)
+        setShowFormName(!showFormName)
         setItemContent("")
       }
 
@@ -58,12 +60,21 @@ function CreateItemForm({listId, hideForm, refresher}){
         )
     }
 
+    let formName = null;
+
+    if (showFormName){
+        formName = (
+        <h3 className="create-form-button-name">New Item</h3>
+        )
+    }
+
     let showFormButton = null
 
     if (!showForm) {
         // showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
         showFormButton = <button className="create-button" onClick={handleFormToggle}>
             <img className="create-button-image" src={createItemButtonImage} alt="create button"/>
+            {formName}
         </button>
     }
 
