@@ -16,7 +16,6 @@ function List(){
     const pageId = list.pageId
     const dispatch = useDispatch()
 
-    let editContent = null;
 
     console.log("ITEMS", list)
 
@@ -38,7 +37,6 @@ function List(){
 
           {item.content}
           </div>
-          {editContent}
           <div className="item-button-container">
             <EditItemForm item={item}
             refresher={()=>{

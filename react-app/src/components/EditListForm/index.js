@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateListName } from "../../store/list";
-import { confirmButtonImage, cancelButtonImage } from "../images/imgSources";
+import { confirmButtonImage, cancelButtonImage, editButtonImage } from "../images/imgSources";
 
 const EditListForm = ({list, refresher}) => {
     const [name, setName] = useState("")
@@ -58,21 +58,21 @@ const EditListForm = ({list, refresher}) => {
       )
     }
 
+    let showFormButton = null
+
+    if (!showForm) {
+      showFormButton = <button className="edit-button" onClick={handleFormToggle}>
+        <img className="edit-button-image" src={editButtonImage} alt="edit-button"/>
+      </button>
+    }
+
 
     return (
-        <form onSubmit={handleSubmit}>
-          <input
-            placeholder={name}
-            type="text"
-            value={name}
-            onChange={updateName}
-            maxLength="40"
-          />
-          {/* <div className="charcounter_description">Characters Remaining : {140 - description.length}</div> */}
-          <button type="submit">
-            Confirm
-          </button>
-        </form>
+      <>
+      {formContent}
+      {showFormButton}
+      {/* <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button> */}
+      </>
       );
 
 }

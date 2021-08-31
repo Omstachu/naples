@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createList } from '../../store/list';
+import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '../images/imgSources';
 
 function CreateListForm({pageId, hideForm, refresher}){
     const [listName, setListName] = useState("")
     const [showForm, setShowForm] = useState(false)
+    const [showFormName, setShowFormName] = useState(false)
 
     const dispatch = useDispatch()
     const history = useHistory()
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -19,6 +22,14 @@ function CreateListForm({pageId, hideForm, refresher}){
         setShowForm(!showForm)
         refresher()
     }
+
+    const handleFormToggle = async (e) => {
+        e.preventDefault();
+        setShowForm(!showForm)
+        setShowFormName(!showFormName)
+        setListName("")
+      }
+
 
     const updateListName = e => {
         const name = e.target.value;
@@ -38,17 +49,33 @@ function CreateListForm({pageId, hideForm, refresher}){
                 onChange={updateListName}
                 maxLength="40"
             />
-            <button>Confirm</button>
-            <button onClick={() => setShowForm(!showForm)}>Cancel</button>
+            <button className="confirm-button">
+                <img className="confirm-button-image" src={confirmButtonImage} alt="create button"/>
+            </button>
+            <button className="cancel-button" onClick={handleFormToggle}>
+                <img className="cancel-button-image" src={cancelButtonImage} alt="create button"/>
+            </button>
             </form>
             </>
         )
     }
 
+    let formName = null;
+
+    if (showFormName){
+        formName = (
+        <h3 className="create-form-button-name">New Item</h3>
+        )
+    }
+
+
     let showFormButton = null;
 
     if (!showForm) {
-        showFormButton = <button onClick={() => setShowForm(!showForm)}>New List</button>
+        showFormButton = <button className="create-button" onClick={() => setShowForm(!showForm)}>
+            <img className="create-button-image" src={createItemButtonImage} alt="create button"/>
+            {formName}
+        </button>
       }
 
     return (

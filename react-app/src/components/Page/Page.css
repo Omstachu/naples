@@ -1,0 +1,18 @@
+.list-container {
+    display: flex;
+}
+
+.list-button-container {
+    display: flex;
+}
+
+.list-name {
+    font-family: 'Fjalla One', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.list-name:hover {
+    font-size: 20px;
+    color: #2D6267;
+}

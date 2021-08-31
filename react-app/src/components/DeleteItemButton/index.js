@@ -2,7 +2,7 @@ import React, {useState }from "react";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../../store/item";
 import "./DeleteItemButton.css"
-import deleteButtonImage from "../images/trash-can-black.png"
+import { deleteButtonImage } from "../images/imgSources";
 
 
 const DeleteItemButton = ({ item, refresher, hideDelete }) => {

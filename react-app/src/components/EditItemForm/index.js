@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
 import "./EditItemForm.css"
-import editButton from '../images/edit-pencil.png'
-import { confirmButtonImage, cancelButtonImage } from "../images/imgSources";
+import { confirmButtonImage, cancelButtonImage, editButtonImage } from "../images/imgSources";
 
 const EditItemForm = ({item, refresher}) => {
     const [content, setContent] = useState("")
@@ -66,7 +65,7 @@ const EditItemForm = ({item, refresher}) => {
     if (!showForm) {
       // showFormButton = <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button>
       showFormButton = <button className="edit-button" onClick={handleFormToggle}>
-        <img className="edit-button-image" src={editButton} alt="edit-button"/>
+        <img className="edit-button-image" src={editButtonImage} alt="edit-button"/>
       </button>
     }
 
