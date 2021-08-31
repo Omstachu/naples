@@ -41,9 +41,9 @@ const EditItemForm = ({item, refresher}) => {
     if (showForm){
       formContent = (
         <>
-        <form onSubmit={handleSubmit}>
+        <form className="edit-item-form" onSubmit={handleSubmit}>
 
-        <input className="item-input"
+        <input className="edit-item-input"
               placeholder="Content"
               type="text"
               value={content}

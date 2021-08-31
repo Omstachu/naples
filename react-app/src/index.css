@@ -19,6 +19,7 @@ body {
     cursor: pointer;
     border-radius: 50px;
     box-sizing: border-box;
+    background: #78B69A;
 }
 
 .confirm-button-image:hover {
@@ -43,6 +44,7 @@ body {
     cursor: pointer;
     border-radius: 50px;
     box-sizing: border-box;
+    background: #ff8daa;
 }
 
 .cancel-button-image:hover {
