@@ -3,6 +3,7 @@ import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createList } from '../../store/list';
 import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '../images/imgSources';
+import "./CreateListForm.css"
 
 function CreateListForm({pageId, hideForm, refresher}){
     const [listName, setListName] = useState("")
@@ -80,7 +81,7 @@ function CreateListForm({pageId, hideForm, refresher}){
 
     return (
 
-        <div>
+        <div className="create-list-button-div">
             {formContent}
             {showFormButton}
         </div>

@@ -1,7 +1,17 @@
 /* TODO Add site wide styles */
 
+* {}
+
 body {
-    /* background: #f6e2b3; */
+    height: 75%
+}
+
+#root {
+    height: 100%;
+}
+
+html {
+    height: 100%;
 }
 
 .confirm-button {
@@ -52,4 +62,70 @@ body {
     height: 40px;
     width: 40px;
     transition-duration: .1s;
+}
+
+.quadrant {
+    display: inline-block;
+    width: 50%;
+}
+
+.quadrant.top-left {
+    position: absolute;
+    /* display: inline-block; */
+    top: 0px;
+    left: 0px;
+    height: 50%;
+    background: #fdaeae;
+    border-radius: 9px;
+}
+
+.quadrant.top-left:hover {
+    background: #ff8daa;
+    transition-duration: .5s;
+}
+
+.quadrant.top-right {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 50%;
+    background: #f6e2b3;
+    border-radius: 9px;
+}
+
+.quadrant.top-right:hover {
+    background: #fcdc90;
+    transition-duration: .5s;
+}
+
+.quadrant.bottom-right {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 50%;
+    background: #b49982;
+    border-radius: 9px;
+}
+
+.quadrant.bottom-right:hover {
+    background: #7e6651;
+    transition-duration: .5s;
+}
+
+.quadrant.bottom-left {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 50%;
+    background: #78B69A;
+    border-radius: 9px;
+}
+
+.quadrant.bottom-left:hover {
+    background: #54b489;
+    transition-duration: .5s;
 }

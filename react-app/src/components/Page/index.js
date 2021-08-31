@@ -11,6 +11,8 @@ function Page(){
     const [page, setPage] = useState({});
     const { pageId }  = useParams();
 
+    const QUADRANTS = ["top-left", "top-right", "bottom-right", "bottom-left"]
+
     useEffect(() => {
         if (!pageId){
             return;
@@ -31,7 +33,8 @@ function Page(){
     const listNames = (
       // page.lists?.map((list,idx) =>{
       lists?.map((list,idx) =>{
-         return <div className="list-container" key={idx}>
+
+         return <div className={`list-container quadrant ${QUADRANTS[idx]}`} key={idx}>
            <div>
             <NavLink className="list-name" to={`/lists/${list.id}`}>{list.name} </NavLink>
            </div>
@@ -44,16 +47,13 @@ function Page(){
     )
 
     return (
-        <ul>\
-        <li>
-          <strong>page</strong> {page.name}
-        </li>
+        <div className="list-section">
         <h2>Lists</h2>
         <div>
           {listNames}
         </div>
         <CreateListForm pageId={pageId} refresher={()=>setRefresh(!refresh)}/>
-      </ul>
+      </div>
     )
 }
 
