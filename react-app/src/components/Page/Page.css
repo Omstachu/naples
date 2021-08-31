@@ -2,13 +2,26 @@
     display: flex;
 }
 
+.list-content-container {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: auto;
+    flex-direction: column;
+    transform: translate(-50%, -50%)
+}
+
 .list-button-container {
     display: flex;
+    justify-content: center;
 }
 
 .list-name {
     /* position: absolute; */
+    text-align: center;
     bottom: 50px;
+    font-size: xx-large;
     font-family: 'Fjalla One', sans-serif;
     text-decoration: none;
     color: black;
@@ -22,4 +35,23 @@
 .list-section {
     position: relative;
     height: 100%;
+}
+
+.list-page.create-button-image {
+    height: 50px;
+    width: 50px;
+}
+
+.list-page-title {
+    position: absolute;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: -2%;
+    font-size: xxx-large;
+    font-family: 'BioRhyme', serif;
+    background: #1496B1;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #7e6651;
+    padding: 10px;
 }
