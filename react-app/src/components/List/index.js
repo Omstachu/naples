@@ -11,7 +11,6 @@ import "./List.css"
 function List(){
 
     const [refresh, setRefresh] = useState(true)
-    const [hideDelete, setHideDelete] = useState(false)
     const { listId }  = useParams();
     const list = useSelector(state => state.list)
     const pageId = list.pageId
@@ -31,6 +30,8 @@ function List(){
         id: item[0]
       }
 
+
+
       return (
         <div className="item-container" key={item.id}>
           <div className="item-content">
@@ -44,7 +45,7 @@ function List(){
               setRefresh(!refresh)
             }}
             />
-            <DeleteItemButton item={item} hideDelete={hideDelete} refresher={()=>setRefresh(!refresh)}/>
+            <DeleteItemButton item={item} refresher={()=>setRefresh(!refresh)}/>
           </div>
         </div>
       )
@@ -66,7 +67,7 @@ function List(){
         <div className="item-list-container">
           {itemContent}
         </div>
-        <div className="item-create-button">
+        <div className="item-create-container">
         <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
         </div>
 

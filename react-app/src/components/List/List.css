@@ -39,11 +39,13 @@
     top: 10px;
 }
 
-.item-create-button {
+.item-create-container {
     display: flex;
     position: relative;
     justify-content: center;
+    /* align-items: center; */
     margin: auto;
     margin-top: 15px;
     padding-top: 5px;
+    width: 50%;
 }

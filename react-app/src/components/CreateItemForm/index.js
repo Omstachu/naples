@@ -39,8 +39,8 @@ function CreateItemForm({listId, hideForm, refresher}){
     if(showForm){
         formContent = (
             <>
-            <form onSubmit={handleSubmit}>
-            <input
+            <form className="create-form" onSubmit={handleSubmit}>
+            <input className="create-form-input"
                 placeholder="enter content here"
                 type="text"
                 value={itemContent}
