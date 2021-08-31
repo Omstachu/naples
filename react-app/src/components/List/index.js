@@ -57,7 +57,7 @@ function List(){
 
 
     return (
-        <ul>
+        <div>
         <div >
           <h2 className="list-title">{list.name}</h2>
           {/* <EditListForm list={list}/>
@@ -67,11 +67,11 @@ function List(){
         <div className="item-list-container">
           {itemContent}
         </div>
-        <div className="item-create-container">
-        <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
-        </div>
+          <div className="item-create-container">
+          <CreateItemForm listId={listId} refresher={()=>setRefresh(!refresh)}/>
+          </div>
 
-      </ul>
+      </div>
     )
 }
 

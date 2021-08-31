@@ -1,1 +1,53 @@
 /* TODO Add site wide styles */
+
+body {
+    /* background: #f6e2b3; */
+}
+
+.confirm-button {
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+.confirm-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.confirm-button-image:hover {
+    box-shadow: -1px -1px 1px black;
+    height: 40px;
+    width: 40px;
+    transition-duration: .1s;
+}
+
+.cancel-button {
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+.cancel-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.cancel-button-image:hover {
+    box-shadow: -1px -1px 1px black;
+    height: 40px;
+    width: 40px;
+    transition-duration: .1s;
+}

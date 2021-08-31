@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import { updateItem } from "../../store/item";
 import "./EditItemForm.css"
 import editButton from '../images/edit-pencil.png'
-import confirmButtonImage from '../images/edit-pencil.png'
-import cancelButtonImage from '../images/cancel-button-circle.png'
+import { confirmButtonImage, cancelButtonImage } from "../images/imgSources";
 
 const EditItemForm = ({item, refresher}) => {
     const [content, setContent] = useState("")
