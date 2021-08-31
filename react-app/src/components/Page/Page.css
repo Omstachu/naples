@@ -27,10 +27,11 @@
     color: black;
 }
 
-.list-name:hover {
+
+/* .list-name:hover {
     font-size: 20px;
     color: #2D6267;
-}
+} */
 
 .list-section {
     position: relative;
