@@ -14,11 +14,12 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+    console.log("signup sent sksksksksk")
+    // if (password === repeatPassword) {
+      const data = await dispatch(signUp(username, email, password, repeatPassword));
       if (data) {
         setErrors(data)
-      }
+      // }
     }
   };
 
@@ -85,7 +86,7 @@ const SignUpForm = () => {
               name='repeat_password'
               onChange={updateRepeatPassword}
               value={repeatPassword}
-              required={true}
+              // required={true}
               ></input>
           </div>
           <button className="signup-form-submit" type='submit'>Sign Up</button>
