@@ -110,3 +110,112 @@
     box-shadow: 1px 1px 1px #b49982;
     /* width: 100%; */
 }
+
+.signup-form {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: url("../images/pexels-oleg-magni-2921615.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    width: auto;
+    margin: auto;
+    padding: 50px;
+    /* left: 50%; */
+    /* bottom: 10%; */
+    /* transform: translate(-50%); */
+    border-radius: 15px;
+    box-shadow: 4px 0px 2px #7e6651, 0px 4px 2px #f6e2b3, -4px 0px 2px #fdaeae
+}
+
+.signup-form-content-container {
+    display: flex;
+    flex-direction: row-reverse;
+    /* width: 100%; */
+}
+
+.signup-form-errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #F6F0D2;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: x-large;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    background: #ff8daa;
+    border-radius: 7px;
+    /* box-sizing: border-box; */
+    /* border: 3px groove #b49982; */
+    box-shadow: 1px 1px 1px #b49982;
+    /* width: 100%; */
+}
+
+.signup-fields-container {
+    background: #f6e2b3;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px #ff8daa;
+    color: #ff8daa;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: x-large;
+    padding: 50px;
+    height: 70%;
+}
+
+.signup-field-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.signup-form-label {
+    vertical-align: middle;
+    line-height: normal;
+    margin-right: 7px;
+    text-align: start;
+}
+
+.signup-form-input {
+    position: relative;
+    height: 50%;
+    background: #86715e;
+    color: #f6e2b3;
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+    border-radius: 4px;
+    margin-left: 15px;
+    /* right: 0px; */
+}
+
+.signup-form-submit {
+    position: absolute;
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #7e6651;
+    background: #ff8daa;
+    transition-duration: .4s;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.signup-form-submit:hover {
+    box-shadow: 7px 7px 7px #7e6651;
+    background: #fa7496;
+    transition-duration: .4s;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
