@@ -1,46 +1,69 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 import LogoutButton from '../auth/LogoutButton';
+import "./NavBar.css"
 
 const NavBar = () => {
-  return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
+
+  const user = useSelector(state => state.session.user)
+  console.log("USER", user)
+
+  let authRoutes = null;
+
+  if (!user){
+    authRoutes = (
+      <>
+        <NavLink className="navbar-login navbar-button" to='/login' exact={true} activeClassName='active'>
+           <div className="navbar-button-text">
             Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
+          </div>
+        </NavLink>
+        <NavLink className="navbar-demo navbar-button" to='/' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
+              Demo
+          </div>
+        </NavLink>
+        <NavLink className="navbar-signup navbar-button" to='/sign-up' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
             Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/pages' exact={true} activeClassName='active'>
+          </div>
+        </NavLink>
+      </>
+    )
+  }
+
+  let userRoutes = null
+
+  if (user){
+    userRoutes = (
+      <>
+        <NavLink className="navbar-home navbar-button" to='/' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
+              Home
+          </div>
+        </NavLink>
+        <NavLink className="navbar-pages navbar-button" to='/pages' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
             Pages
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/lists/1' exact={true} activeClassName='active'>
-            List 1
-          </NavLink>
-        </li>
-        <li>
+          </div>
+        </NavLink>
+        <div className="navbar-logout navbar-button">
           <LogoutButton />
-        </li>
-      </ul>
+        </div>
+      </>
+    )
+  }
+
+  return (
+    <nav className="navbar-container">
+      <div className="navbar-links">
+
+        {authRoutes}
+        {userRoutes}
+
+      </div>
     </nav>
   );
 }

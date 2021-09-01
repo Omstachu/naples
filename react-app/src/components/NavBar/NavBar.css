@@ -1,0 +1,82 @@
+.navbar-container {
+    position: sticky;
+    height: 31%;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: space-between;
+    height: 33%;
+    /* background: red; */
+}
+
+.navbar-button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* background: red; */
+    width: 33%;
+    border-radius: 4px;
+    /* border: 2px ridge #7e6651; */
+    box-shadow: 4px 4px 4px #7e6651;
+    opacity: .8;
+    text-decoration: none;
+}
+
+.navbar-button:hover {
+    opacity: 1;
+    width: 50%;
+    height: 120%;
+    transition-duration: .7s;
+}
+
+.navbar-button-text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: xx-large;
+    color: #2D6267;
+}
+
+.navbar-logout-button {
+    position: relative;
+    width: 100%;
+    background: #b49982;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-home {
+    background: #fdaeae;
+    text-decoration: none;
+}
+
+.navbar-login {
+    background: #fdaeae;
+    text-decoration: none;
+}
+
+.navbar-signup {
+    background: #b49982;
+    text-decoration: none;
+}
+
+.navbar-pages {
+    background: #f6e2b3;
+    text-decoration: none;
+}
+
+.navbar-demo {
+    background: #f6e2b3;
+    text-decoration: none;
+}
+
+
+/* .navbar-logout {
+    background: #b49982;
+    text-decoration: none;
+} */
