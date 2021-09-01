@@ -22,6 +22,8 @@
     box-shadow: 4px 4px 4px #7e6651;
     opacity: .8;
     text-decoration: none;
+    /* padding-top: 40px; */
+    transition-duration: .7s;
 }
 
 .navbar-button:hover {
@@ -45,6 +47,15 @@
     position: relative;
     width: 100%;
     background: #b49982;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-demo-button {
+    position: relative;
+    width: 100%;
+    background: #f6e2b3;
     outline: none;
     border: none;
     cursor: pointer;

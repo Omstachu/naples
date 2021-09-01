@@ -1,0 +1,112 @@
+.login-form {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: url("../images/pexels-francesco-ungaro-96947.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%);
+    border-radius: 15px;
+    box-shadow: 4px 0px 2px #7e6651, 0px 4px 2px #f6e2b3, -4px 0px 2px #fdaeae
+}
+
+.login-form-content-container {
+    transition-duration: .7s;
+}
+
+.login-email-and-password-container {
+    background: #f6e2b3;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px #ff8daa;
+    color: #ff8daa;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: x-large;
+    padding: 70px;
+}
+
+.login-email-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color: #ff8daa; */
+}
+
+.login-email-input {
+    background: #7e6651;
+    color: #f6e2b3;
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+}
+
+.login-email-label {
+    position: relative;
+    top: 10px;
+}
+
+.login-password-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color: #ff8daa; */
+}
+
+.login-password-input {
+    background: #7e6651;
+    color: #f6e2b3;
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+}
+
+.login-password-submit {
+    margin-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #7e6651;
+    background: #ff8daa;
+    transition-duration: .4s;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.login-password-submit:hover {
+    box-shadow: 7px 7px 7px #7e6651;
+    background: #fa7496;
+    transition-duration: .4s;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.login-password-label {
+    position: relative;
+    top: 10px;
+}
+
+.login-form-errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #F6F0D2;
+    margin-bottom: 30px;
+    font-size: x-large;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    background: #ff8daa;
+    border-radius: 7px;
+    /* border: 3px groove #b49982; */
+    box-shadow: 1px 1px 1px #b49982;
+    /* width: 100%; */
+}
