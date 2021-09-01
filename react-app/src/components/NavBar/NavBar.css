@@ -23,6 +23,7 @@
     opacity: .8;
     text-decoration: none;
     /* padding-top: 40px; */
+    transition-duration: .7s;
 }
 
 .navbar-button:hover {
