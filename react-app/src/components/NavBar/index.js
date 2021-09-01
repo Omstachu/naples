@@ -15,37 +15,54 @@ const NavBar = () => {
   if (!user){
     authRoutes = (
       <>
-        <div>
-          <NavLink to='/login' exact={true} activeClassName='active'>
+        <NavLink className="navbar-login navbar-button" to='/login' exact={true} activeClassName='active'>
+           <div className="navbar-button-text">
             Login
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
+          </div>
+        </NavLink>
+        <NavLink className="navbar-demo navbar-button" to='/' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
+              Demo
+          </div>
+        </NavLink>
+        <NavLink className="navbar-signup navbar-button" to='/sign-up' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
             Sign Up
-          </NavLink>
+          </div>
+        </NavLink>
+      </>
+    )
+  }
+
+  let userRoutes = null
+
+  if (user){
+    userRoutes = (
+      <>
+        <NavLink className="navbar-home navbar-button" to='/' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
+              Home
+          </div>
+        </NavLink>
+        <NavLink className="navbar-pages navbar-button" to='/pages' exact={true} activeClassName='active'>
+          <div className="navbar-button-text">
+            Pages
+          </div>
+        </NavLink>
+        <div className="navbar-logout navbar-button">
+          <LogoutButton />
         </div>
       </>
     )
   }
 
   return (
-    <nav>
+    <nav className="navbar-container">
       <div className="navbar-links">
-        <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </div>
+
         {authRoutes}
-        <div>
-          <NavLink to='/pages' exact={true} activeClassName='active'>
-            Pages
-          </NavLink>
-        </div>
-        <div>
-          <LogoutButton />
-        </div>
+        {userRoutes}
+
       </div>
     </nav>
   );
