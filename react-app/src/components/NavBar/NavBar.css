@@ -50,6 +50,15 @@
     cursor: pointer;
 }
 
+.navbar-demo-button {
+    position: relative;
+    width: 100%;
+    background: #b49982;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
 .navbar-home {
     background: #fdaeae;
     text-decoration: none;
