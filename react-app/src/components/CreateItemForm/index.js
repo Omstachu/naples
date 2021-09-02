@@ -9,6 +9,7 @@ function CreateItemForm({listId, hideForm, refresher}){
     const [itemContent, setItemContent] = useState("")
     const [showForm, setShowForm] = useState(false)
     const [showFormName, setShowFormName] = useState(true)
+    const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -16,9 +17,14 @@ function CreateItemForm({listId, hideForm, refresher}){
     const handleSubmit = async (e) => {
         e.preventDefault()
         // console.log("userId and pageContent----------------", userId, pageContent)
-        await dispatch(createItem(listId, itemContent))
+        const res = await dispatch(createItem(listId, itemContent))
         setShowForm(!showForm)
         setItemContent("")
+        setShowFormName(true)
+        console.log(res)
+        if (res){
+            setValidationErrors(res[0])
+        }
         // history.push('/')
         // history.push(`/lists/${listId}`)
         refresher()
@@ -28,6 +34,7 @@ function CreateItemForm({listId, hideForm, refresher}){
         e.preventDefault();
         setShowForm(!showForm)
         setShowFormName(!showFormName)
+        setValidationErrors([])
         setItemContent("")
       }
 
@@ -79,7 +86,10 @@ function CreateItemForm({listId, hideForm, refresher}){
     }
 
     return (
-        <div>
+        <div className="create-form-body">
+            <div className="create-form-errors">
+                {validationErrors}
+            </div>
             {formContent}
             {showFormButton}
         </div>

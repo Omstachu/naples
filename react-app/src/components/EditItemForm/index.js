@@ -7,6 +7,7 @@ import { confirmButtonImage, cancelButtonImage, editButtonImage } from "../image
 const EditItemForm = ({item, refresher}) => {
     const [content, setContent] = useState("")
     const [showForm, setShowForm] = useState(false)
+    const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
 
@@ -17,16 +18,18 @@ const EditItemForm = ({item, refresher}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         item.content = content
-        await dispatch(updateItem(item))
-        // hideForm()
+        const res = await dispatch(updateItem(item))
         setShowForm(!showForm)
+        if (res) {
+          setValidationErrors(res)
+        }
         refresher()
     }
 
     const handleFormToggle = async (e) => {
       e.preventDefault();
       setShowForm(!showForm)
-
+      setValidationErrors([])
     }
 
 
@@ -69,12 +72,19 @@ const EditItemForm = ({item, refresher}) => {
       </button>
     }
 
+    // if (!showValidationErrors){
+    //   setValidationErrors(null)
+    // }
+
     // if ((document.getElementById(`edit-toggle-button-${item.id}`) !== document.activeElement) && showForm){
     //   setShowForm(false)
     // }
 
+
+
     return (
       <>
+      {validationErrors}
       {formContent}
       {showFormButton}
       {/* <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button> */}

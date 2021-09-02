@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired
 
 class ItemForm(FlaskForm):
     listId = IntegerField("listId", validators=[DataRequired()])
-    content = StringField("content")
+    content = StringField("content", validators=[DataRequired("Cannot be blank.")])

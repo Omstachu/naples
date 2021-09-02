@@ -65,7 +65,6 @@ export const getOneList = (listId) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        console.log("<A<D<AD<A<DA<DA<DA<D", data)
         dispatch(getList(data));
     }
 
