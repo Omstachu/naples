@@ -60,12 +60,12 @@ def create_list():
 @login_required
 def edit_list_name(id):
     name = request.form["name"]
-    if len(name) <= 40:
+    if len(name) > 0:
         list = List.query.get(id)
         list.name = name
         db.session.commit()
         return {'Success': 'Success!'}
-    return {'failure':"It is over 40"}
+    return {'errors':"List name cannot be blank."}, 401
 
 @list_routes.route('/<int:id>/delete', methods=["POST"])
 @login_required

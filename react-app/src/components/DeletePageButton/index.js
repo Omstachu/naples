@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, } from "react-redux"
 import { removePage } from "../../store/page";
+import { deleteButtonImage } from "../images/imgSources";
+
 
 const DeletePageButton = ({pageId, refresher}) => {
     const dispatch = useDispatch()
@@ -13,11 +15,13 @@ const DeletePageButton = ({pageId, refresher}) => {
 
 
     return (
-    <form onSubmit={handleDelete}>
-        <button type="submit">
-        Delete Page
-        </button>
-    </form>
+        <>
+        <form onSubmit={handleDelete}>
+            <button className="delete-button" type="submit">
+            <img className="delete-button-image" src={deleteButtonImage} alt="delete-button"/>
+            </button>
+        </form>
+        </>
     );
 }
 

@@ -1,0 +1,82 @@
+.page-title {
+    /* background: red; */
+}
+
+.pages-username {
+    font-family: 'Inknut Antiqua', serif;
+    color: cadetblue;
+    background: #fdaeae;
+    border-radius: 9px;
+    padding: 5px;
+    box-shadow: 4px 4px 4px #b49982;
+}
+
+.page-title-container {
+    text-decoration: none;
+    color: #1496B1;
+    font-family: 'Inknut Antiqua', serif;
+    transition-duration: .7s;
+}
+
+.page-title-container:hover {
+    transition-duration: .7s;
+    color: #077085;
+    padding: 10px;
+}
+
+.page-content-container {
+    display: flex;
+    justify-content: space-evenly;
+    background: #f6e2b3;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border-radius: 9px;
+    box-shadow: 5px 5px 5px cadetblue;
+    opacity: .95;
+}
+
+.page-content-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 9px; */
+}
+
+.pages-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.page-create-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ff8daa;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 7px;
+    box-shadow: 4px 4px 4px #7e6651;
+    transition: all 0.7s;
+}
+
+.page-create-content:hover {
+    box-shadow: 8px 8px 8px #7e6651;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.page-create-content-container {
+    display: flex;
+    justify-content: center;
+    /* width: 50%; */
+}

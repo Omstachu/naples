@@ -6,6 +6,7 @@ import { confirmButtonImage, cancelButtonImage, editButtonImage } from "../image
 const EditListForm = ({list, refresher}) => {
     const [name, setName] = useState("")
     const [showForm, setShowForm] = useState(false)
+    const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
 
@@ -16,16 +17,19 @@ const EditListForm = ({list, refresher}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         list.name = name
-        await dispatch(updateListName(list))
-        // hideForm()
+        const res = await dispatch(updateListName(list))
         setShowForm(!showForm)
+        if (res){
+          setValidationErrors(res)
+        }
+        console.log("RESTEES", res)
         refresher()
     }
 
     const handleFormToggle = async (e) => {
       e.preventDefault();
       setShowForm(!showForm)
-
+      setValidationErrors([])
     }
 
     const updateName = (e) => {
@@ -69,9 +73,11 @@ const EditListForm = ({list, refresher}) => {
 
     return (
       <>
+      <div className="create-form-errors">
+          {validationErrors}
+      </div>
       {formContent}
       {showFormButton}
-      {/* <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button> */}
       </>
       );
 

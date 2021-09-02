@@ -20,8 +20,6 @@ class List(db.Model):
         contents = {el.id:{el.id: el.content} for el in self.item}
         # items = [(el.content, el.id) for el in self.item]
         items = {el.id:[el.id, el.content] for el in self.item}
-        print("PRINTERPRINTER>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", [items])
-
         return {
             "id": self.id,
             "pageId": self.pageId,

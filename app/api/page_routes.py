@@ -6,6 +6,16 @@ from ..forms import PageForm
 
 page_routes = Blueprint('pages', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            # errorMessages.append(f'{field} : {error}')
+            errorMessages.append(f'{error}')
+    return errorMessages
 
 @page_routes.route('/')
 @login_required
@@ -42,18 +52,19 @@ def create_page():
             "userId": page.userId,
             "lists": page.to_dict()["lists"]
         }
-    return page
+        return page
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @page_routes.route('/<int:id>/edit', methods=["POST"])
 @login_required
 def edit_page_name(id):
     name = request.form["name"]
-    if len(name) <= 40:
+    if len(name) > 0:
         page = Page.query.get(id)
         page.name = name
         db.session.commit()
         return {'Success': 'Success!'}
-    return {'failure':"It is over 40"}
+    return {'errors':"Cannot be blank"}, 401
 
 
 @page_routes.route('/<int:id>/delete', methods=["POST"])
