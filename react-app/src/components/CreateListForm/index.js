@@ -21,6 +21,7 @@ function CreateListForm({pageId, hideForm, refresher}){
         // history.push(`/lists/${res.data.id}`)
         setListName("")
         setShowForm(!showForm)
+        setShowFormName(true)
         refresher()
     }
 
@@ -42,8 +43,8 @@ function CreateListForm({pageId, hideForm, refresher}){
     if (showForm){
         formContent = (
             <>
-            <form onSubmit={handleSubmit}>
-            <input
+            <form className="create-list-form" onSubmit={handleSubmit}>
+            <input className="create-list-input"
                 placeholder="Page Name"
                 type="text"
                 value={listName}
@@ -65,7 +66,7 @@ function CreateListForm({pageId, hideForm, refresher}){
 
     if (showFormName){
         formName = (
-        <h3 className="create-form-button-name">New Item</h3>
+        <h3 className="create-form-button-name">New List</h3>
         )
     }
 
@@ -73,8 +74,12 @@ function CreateListForm({pageId, hideForm, refresher}){
     let showFormButton = null;
 
     if (!showForm) {
-        showFormButton = <button className="create-button" onClick={() => setShowForm(!showForm)}>
-            <img className="create-button-image list-page" src={createItemButtonImage} alt="create button"/>
+        showFormButton = <button className="create-list-button" onClick={() => {
+            setShowForm(!showForm)
+            setShowFormName(!showFormName)
+        }}
+        >
+        <img className="create-list-button-image list-page" src={createItemButtonImage} alt="create button"/>
             {/* {formName} */}
         </button>
       }
@@ -84,6 +89,7 @@ function CreateListForm({pageId, hideForm, refresher}){
         <div className="create-list-button-div">
             {formContent}
             {showFormButton}
+            {formName}
         </div>
 
     )

@@ -1,9 +1,67 @@
 .create-list-button-div {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     margin: auto;
+    background: #F6F0D2;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    z-index: 5;
+    transition: all 0.7s;
+}
+
+.create-list-button-div:hover {
+    transition: all 0.7s;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px #7e6651;
+}
+
+.create-list-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-top: 25px;
+    /* width: 100%; */
+}
+
+.create-list-button-image {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    /* background: url('../images/delete-button.png') no-repeat center top; */
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 50px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.create-list-form {}
+
+.create-list-input {
+    position: relative;
+    font-family: 'Proza Libre', sans-serif;
+    background: #fdaeae;
+    /* border: none; */
+    /* z-index: 2; */
+    /* height: 100%; */
+    border: 2px solid #ff8daa;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+    bottom: 5px;
+    box-shadow: 1px 1px 1px #f6e2b3;
 }
 
 

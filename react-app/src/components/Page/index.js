@@ -35,20 +35,22 @@ function Page(){
       lists?.map((list,idx) =>{
 
          return (
-          <NavLink to={`/lists/${list.id}`}>
-            <div className={`list-container quadrant ${QUADRANTS[idx]}`} key={idx}>
-                <div className="list-content-container">
-                  <div className="list-name">
-                  {list.name}
+           <div>
+              <div className={`list-container quadrant ${QUADRANTS[idx]}`} key={idx}>
+                  <div className="list-content-container">
+            <NavLink to={`/lists/${list.id}`}>
+                    <div className="list-name">
+                    {list.name}
 
+                    </div>
+            </NavLink>
+                    <div className="list-button-container">
+                      <EditListForm list={list} refresher={()=>setRefresh(!refresh)}/>
+                      <DeleteListButton listId={list.id} pageId={pageId} refresher={()=>setRefresh(!refresh)}/>
+                    </div>
                   </div>
-                  <div className="list-button-container">
-                    <EditListForm list={list} refresher={()=>setRefresh(!refresh)}/>
-                    <DeleteListButton listId={list.id} pageId={pageId} refresher={()=>setRefresh(!refresh)}/>
-                  </div>
-                </div>
-            </div>
-          </NavLink>
+              </div>
+           </div>
          )
       })
     )
