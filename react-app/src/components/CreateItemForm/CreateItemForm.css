@@ -1,10 +1,24 @@
 .create-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     outline: none;
     background: transparent;
     border: none;
     box-sizing: border-box;
+    cursor: pointer;
+    margin-top: 25px;
     /* border-radius: 50px;
     box-shadow: 4px 4px 4px black; */
+}
+
+.create-button:hover {
+    border-radius: 9px;
+    /* box-shadow: 7px 7px 7px #f6e2b3; */
+    transition-duration: .7s;
+    padding: 20px;
 }
 
 .create-button-image {
@@ -19,29 +33,40 @@
     box-shadow: 2px 2px 2px black;
 }
 
-.create-button-image:hover {
+
+/* .create-button-image:hover {
     box-shadow: -2px -2px 2px black;
     height: 40px;
     width: 40px;
     transition-duration: .1s;
-}
+} */
 
 .create-form-input {
     position: relative;
-    margin-top: 20px;
     font-family: 'Proza Libre', sans-serif;
-    border: none;
-    border-bottom: 2px solid black;
-    /* right: 250px;
-    width: 400px; */
+    background: #fdaeae;
+    /* border: none; */
+    /* z-index: 2; */
+    /* height: 100%; */
+    border: 2px solid #ff8daa;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+    bottom: 5px;
+    box-shadow: 1px 1px 1px #f6e2b3;
 }
 
 .create-form-input:focus {
-    position: relative;
+    /* position: relative;
     font-family: 'Proza Libre', sans-serif;
     border: none;
     outline: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid black; */
+    outline: none;
+    border: 2px solid #ff8daa;
+    box-shadow: 1px 1px 1px #f6e2b3;
+    background: #f6e2b3;
+    color: #7e6651
 }
 
 .create-form {
@@ -55,4 +80,20 @@
     display: flex;
     font-family: 'Inknut Antiqua', serif;
     bottom: 20px;
+}
+
+.create-form-body {
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-direction: column;
+    background: #e26282;
+    border-radius: 9px;
+    box-shadow: 4px 4px 4px #f6e2b3;
+    margin-top: 10px;
+    padding: 10px;
+    transition-duration: all .7s;
+    font-family: 'Fjalla One', sans-serif;
+    color: #f6e2b3;
 }

@@ -17,8 +17,6 @@ function List(){
     const dispatch = useDispatch()
 
 
-    console.log("ITEMS", list)
-
     let listItems = null
     if (list?.items) listItems = Object.values(list.items)
 
