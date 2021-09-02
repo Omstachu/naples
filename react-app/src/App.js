@@ -60,10 +60,9 @@ function App() {
         <ProtectedRoute path='/lists/:listId' exact={true} >
           <List />
         </ProtectedRoute>
-
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <LandingPage />
-        </ProtectedRoute>
+        </Route>
 
       </Switch>
     </BrowserRouter>
