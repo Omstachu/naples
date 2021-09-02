@@ -12,9 +12,6 @@ function CreateListForm({pageId, hideForm, refresher, maxLists}){
     const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
-    const history = useHistory()
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
 
