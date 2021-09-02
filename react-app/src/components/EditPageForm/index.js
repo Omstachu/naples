@@ -51,7 +51,6 @@ const EditPageForm = ({page, refresher}) => {
             onChange={updateName}
             maxLength="40"
           />
-          {/* <div className="charcounter_description">Characters Remaining : {140 - description.length}</div> */}
           <button className="confirm-button" type="submit">
           <img className="confirm-button-image" src={confirmButtonImage} alt="confirm-button"/>
           </button>

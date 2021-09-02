@@ -9,7 +9,6 @@ import "./PageList.css"
 
 
 function PageList(){
-    // const [pages, setPages] = useState({});
     const [refresh, setRefresh] = useState(true)
     const pages = useSelector(state => state.page)
     const userId = useSelector((state) => state.session.user.id);
@@ -29,7 +28,6 @@ function PageList(){
 
     const pageNames = (
         pageList.map((page,idx) =>{
-        // pages.pages?.map((page,idx) =>{
             if (page.userId === userId){
                 return (
                 <div className="page-content-container" key={idx}>

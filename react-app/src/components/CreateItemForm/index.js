@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
-import { useHistory } from 'react-router-dom';
 import { createItem } from '../../store/item';
 import "./CreateItemForm.css"
 import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '../images/imgSources';
@@ -12,11 +11,8 @@ function CreateItemForm({listId, hideForm, refresher}){
     const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
-    const history = useHistory()
-
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log("userId and pageContent----------------", userId, pageContent)
         const res = await dispatch(createItem(listId, itemContent))
         setShowForm(!showForm)
         setItemContent("")
@@ -24,8 +20,6 @@ function CreateItemForm({listId, hideForm, refresher}){
         if (res){
             setValidationErrors(res[0])
         }
-        // history.push('/')
-        // history.push(`/lists/${listId}`)
         refresher()
     }
 

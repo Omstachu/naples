@@ -18,7 +18,6 @@ const NavBar = () => {
   }
 
   const user = useSelector(state => state.session.user)
-  console.log("USER", user)
 
   let authRoutes = null;
 

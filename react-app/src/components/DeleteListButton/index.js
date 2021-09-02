@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch, } from "react-redux";
-import {useHistory} from "react-router-dom"
 import { removeList } from "../../store/list";
 import { deleteButtonImage } from "../images/imgSources";
 import "./DeleteListButton.css"

@@ -78,7 +78,6 @@ const EditListForm = ({list, refresher}) => {
       </div>
       {formContent}
       {showFormButton}
-      {/* <button id={`edit-toggle-button-${item.id}`} onClick={() => setShowForm(!showForm)}>Edit</button> */}
       </>
       );
 

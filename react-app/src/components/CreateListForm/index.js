@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
-import { useHistory } from 'react-router-dom';
 import { createList } from '../../store/list';
-import { confirmButtonImage, cancelButtonImage, createItemButtonImage, middleButtonImage } from '../images/imgSources';
+import { confirmButtonImage, cancelButtonImage, createItemButtonImage} from '../images/imgSources';
 import "./CreateListForm.css"
 
 function CreateListForm({pageId, hideForm, refresher, maxLists}){
@@ -19,9 +18,7 @@ function CreateListForm({pageId, hideForm, refresher, maxLists}){
             setValidationErrors("4 Lists Max.")
             return
         }
-        // console.log("userId and pageName----------------", userId, pageName)
         const res = await dispatch(createList(pageId, listName))
-        // history.push(`/lists/${res.data.id}`)
         setListName("")
         setShowForm(!showForm)
         setShowFormName(true)
@@ -88,7 +85,6 @@ function CreateListForm({pageId, hideForm, refresher, maxLists}){
         }}
         >
         <img className="create-list-button-image list-page" src={createItemButtonImage} alt="create button"/>
-            {/* {formName} */}
         </button>
       }
 

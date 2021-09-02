@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
-import { useHistory } from 'react-router-dom';
 import { createPage} from '../../store/page';
 import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '../images/imgSources';
 
@@ -12,12 +11,10 @@ function CreatePageForm({userId, refresher}){
     const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
-    const history = useHistory()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         const res = await dispatch(createPage(userId, pageName))
-        // history.push(`/pages/${res.data.id}`)
         setPageName("")
         if (res){
             setValidationErrors(res[0])

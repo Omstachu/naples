@@ -54,8 +54,6 @@ function List(){
         <div>
         <div >
           <h2 className="list-title">{list.name}</h2>
-          {/* <EditListForm list={list}/>
-          <DeleteListButton listId={listId} pageId={pageId}/> */}
         </div>
 
         <div className="item-list-container">
