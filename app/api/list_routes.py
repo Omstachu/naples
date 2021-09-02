@@ -5,6 +5,16 @@ from ..forms import ListForm
 
 list_routes = Blueprint('lists', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            # errorMessages.append(f'{field} : {error}')
+            errorMessages.append(f'{error}')
+    return errorMessages
 
 @list_routes.route('/')
 @login_required
@@ -43,8 +53,8 @@ def create_list():
             "contents": list.to_dict()["contents"],
 
         }
-
-    return list
+        return list
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @list_routes.route('/<int:id>/edit', methods=["POST"])
 @login_required

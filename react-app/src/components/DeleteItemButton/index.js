@@ -11,7 +11,6 @@ const DeleteItemButton = ({ item, refresher, hideDelete }) => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        console.log(item)
         await dispatch(removeItem(item.id));
         refresher()
         // history.push("/pages/");

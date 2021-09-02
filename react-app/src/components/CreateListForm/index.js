@@ -5,10 +5,11 @@ import { createList } from '../../store/list';
 import { confirmButtonImage, cancelButtonImage, createItemButtonImage, middleButtonImage } from '../images/imgSources';
 import "./CreateListForm.css"
 
-function CreateListForm({pageId, hideForm, refresher}){
+function CreateListForm({pageId, hideForm, refresher, maxLists}){
     const [listName, setListName] = useState("")
     const [showForm, setShowForm] = useState(false)
     const [showFormName, setShowFormName] = useState(true)
+    const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -16,11 +17,20 @@ function CreateListForm({pageId, hideForm, refresher}){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if(maxLists){
+            setValidationErrors("4 Lists Max.")
+            return
+        }
         // console.log("userId and pageName----------------", userId, pageName)
         const res = await dispatch(createList(pageId, listName))
         // history.push(`/lists/${res.data.id}`)
         setListName("")
         setShowForm(!showForm)
+        setShowFormName(true)
+        if (res){
+            setValidationErrors(res[0])
+        }
         refresher()
     }
 
@@ -29,6 +39,7 @@ function CreateListForm({pageId, hideForm, refresher}){
         setShowForm(!showForm)
         setShowFormName(!showFormName)
         setListName("")
+        setValidationErrors([])
       }
 
 
@@ -42,8 +53,8 @@ function CreateListForm({pageId, hideForm, refresher}){
     if (showForm){
         formContent = (
             <>
-            <form onSubmit={handleSubmit}>
-            <input
+            <form className="create-list-form" onSubmit={handleSubmit}>
+            <input className="create-list-input"
                 placeholder="Page Name"
                 type="text"
                 value={listName}
@@ -65,7 +76,7 @@ function CreateListForm({pageId, hideForm, refresher}){
 
     if (showFormName){
         formName = (
-        <h3 className="create-form-button-name">New Item</h3>
+        <h3 className="create-form-button-name">New List</h3>
         )
     }
 
@@ -73,8 +84,13 @@ function CreateListForm({pageId, hideForm, refresher}){
     let showFormButton = null;
 
     if (!showForm) {
-        showFormButton = <button className="create-button" onClick={() => setShowForm(!showForm)}>
-            <img className="create-button-image list-page" src={createItemButtonImage} alt="create button"/>
+        showFormButton = <button className="create-list-button" onClick={() => {
+            setValidationErrors([])
+            setShowForm(!showForm)
+            setShowFormName(!showFormName)
+        }}
+        >
+        <img className="create-list-button-image list-page" src={createItemButtonImage} alt="create button"/>
             {/* {formName} */}
         </button>
       }
@@ -82,8 +98,10 @@ function CreateListForm({pageId, hideForm, refresher}){
     return (
 
         <div className="create-list-button-div">
+            {validationErrors}
             {formContent}
             {showFormButton}
+            {formName}
         </div>
 
     )

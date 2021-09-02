@@ -21,10 +21,27 @@
     /* position: absolute; */
     text-align: center;
     bottom: 50px;
-    font-size: xx-large;
+    font-size: xxx-large;
     font-family: 'Fjalla One', sans-serif;
     text-decoration: none;
     color: black;
+    transition: all .7s
+}
+
+.list-name:hover {
+    box-shadow: 3px 3px 3px #7e6651;
+    transition: all .7s
+}
+
+.list-name:hover::after {
+    content: "<";
+    box-shadow: 3px 3px 3px #7e6651;
+    border-radius: 9px;
+    transition: all .7s
+}
+
+.list-nav {
+    text-decoration: none;
 }
 
 
