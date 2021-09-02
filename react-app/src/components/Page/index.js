@@ -27,12 +27,22 @@ function Page(){
 
     let lists = []
 
+    let maxLists = false;
+
     if (page.lists) {
       lists = Object.values(page.lists)
     }
     const listNames = (
       // page.lists?.map((list,idx) =>{
       lists?.map((list,idx) =>{
+
+        if (idx===3){
+          maxLists = true;
+        } else{
+          maxLists = false;
+        }
+
+        console.log("maxLISTS", maxLists)
 
          return (
            <div>
@@ -60,7 +70,7 @@ function Page(){
         <div>
           {listNames}
         </div>
-        <CreateListForm pageId={pageId} refresher={()=>setRefresh(!refresh)}/>
+        <CreateListForm maxLists={maxLists} pageId={pageId} refresher={()=>setRefresh(!refresh)}/>
       </div>
     )
 }

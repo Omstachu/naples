@@ -5,7 +5,7 @@ import { createList } from '../../store/list';
 import { confirmButtonImage, cancelButtonImage, createItemButtonImage, middleButtonImage } from '../images/imgSources';
 import "./CreateListForm.css"
 
-function CreateListForm({pageId, hideForm, refresher}){
+function CreateListForm({pageId, hideForm, refresher, maxLists}){
     const [listName, setListName] = useState("")
     const [showForm, setShowForm] = useState(false)
     const [showFormName, setShowFormName] = useState(true)
@@ -17,6 +17,11 @@ function CreateListForm({pageId, hideForm, refresher}){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if(maxLists){
+            setValidationErrors("4 Lists Max.")
+            return
+        }
         // console.log("userId and pageName----------------", userId, pageName)
         const res = await dispatch(createList(pageId, listName))
         // history.push(`/lists/${res.data.id}`)
