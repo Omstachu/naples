@@ -8,9 +8,6 @@ const EditPageForm = ({page, refresher}) => {
     const [showForm, setShowForm] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
-
-
-
     const dispatch = useDispatch()
 
     useEffect(() => {

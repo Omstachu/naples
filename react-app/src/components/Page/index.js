@@ -33,7 +33,6 @@ function Page(){
       lists = Object.values(page.lists)
     }
     const listNames = (
-      // page.lists?.map((list,idx) =>{
       lists?.map((list,idx) =>{
 
         if (idx===3){
@@ -42,7 +41,7 @@ function Page(){
           maxLists = false;
         }
          return (
-           <div>
+           <div key={idx}>
               <div className={`list-container quadrant ${QUADRANTS[idx]}`} key={idx}>
                   <div className="list-content-container">
                     <NavLink className="list-nav" to={`/lists/${list.id}`}>
