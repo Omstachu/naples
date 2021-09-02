@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { createPage} from '../../store/page';
+import { confirmButtonImage, cancelButtonImage, createItemButtonImage } from '../images/imgSources';
+
 
 function CreatePageForm({userId, refresher}){
     const [pageName, setPageName] = useState("")
@@ -50,7 +52,7 @@ function CreatePageForm({userId, refresher}){
       }
 
       return (
-        <div>
+        <div className="page-create-content">
             {formContent}
             {showFormButton}
         </div>

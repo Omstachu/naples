@@ -21,7 +21,6 @@ function CreateItemForm({listId, hideForm, refresher}){
         setShowForm(!showForm)
         setItemContent("")
         setShowFormName(true)
-        console.log(res)
         if (res){
             setValidationErrors(res[0])
         }

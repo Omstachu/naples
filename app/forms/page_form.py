@@ -5,4 +5,4 @@ from wtforms.validators import DataRequired
 
 class PageForm(FlaskForm):
     userId = IntegerField("userId", validators=[DataRequired()])
-    name = StringField("name")
+    name = StringField("name", validators=[DataRequired("Cannot be blank.")])

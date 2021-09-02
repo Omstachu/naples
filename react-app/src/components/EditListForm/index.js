@@ -17,7 +17,6 @@ const EditListForm = ({list, refresher}) => {
         e.preventDefault();
         list.name = name
         await dispatch(updateListName(list))
-        // hideForm()
         setShowForm(!showForm)
         refresher()
     }

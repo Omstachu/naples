@@ -1,0 +1,50 @@
+.page-title {
+    /* background: red; */
+}
+
+.pages-username {
+    font-family: 'Inknut Antiqua', serif;
+    color: cadetblue;
+    background: #fdaeae;
+    border-radius: 9px;
+    padding: 5px;
+    box-shadow: 4px 4px 4px #b49982;
+}
+
+.page-title-container {
+    text-decoration: none;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.page-content-container {
+    display: flex;
+    justify-content: space-evenly;
+    background: #f6e2b3;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    border-radius: 9px;
+    box-shadow: 5px 5px 5px cadetblue;
+    opacity: .95;
+}
+
+.page-content-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 9px; */
+}
+
+.pages-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.page-create-content {
+    display: flex;
+    justify-content: center;
+}

@@ -41,9 +41,6 @@ function Page(){
         } else{
           maxLists = false;
         }
-
-        console.log("maxLISTS", maxLists)
-
          return (
            <div>
               <div className={`list-container quadrant ${QUADRANTS[idx]}`} key={idx}>
