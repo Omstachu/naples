@@ -9,6 +9,7 @@ function CreateListForm({pageId, hideForm, refresher}){
     const [listName, setListName] = useState("")
     const [showForm, setShowForm] = useState(false)
     const [showFormName, setShowFormName] = useState(true)
+    const [validationErrors, setValidationErrors] = useState([])
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -22,6 +23,9 @@ function CreateListForm({pageId, hideForm, refresher}){
         setListName("")
         setShowForm(!showForm)
         setShowFormName(true)
+        if (res){
+            setValidationErrors(res[0])
+        }
         refresher()
     }
 
@@ -30,6 +34,7 @@ function CreateListForm({pageId, hideForm, refresher}){
         setShowForm(!showForm)
         setShowFormName(!showFormName)
         setListName("")
+        setValidationErrors([])
       }
 
 
@@ -75,6 +80,7 @@ function CreateListForm({pageId, hideForm, refresher}){
 
     if (!showForm) {
         showFormButton = <button className="create-list-button" onClick={() => {
+            setValidationErrors([])
             setShowForm(!showForm)
             setShowFormName(!showFormName)
         }}
@@ -87,6 +93,7 @@ function CreateListForm({pageId, hideForm, refresher}){
     return (
 
         <div className="create-list-button-div">
+            {validationErrors}
             {formContent}
             {showFormButton}
             {formName}

@@ -1,0 +1,77 @@
+.landing-page-content {
+    position: relative;
+    height: 100%;
+    background: #ff8daa;
+    border-radius: 9px;
+}
+
+.landing-page-image-containers {
+    display: flex;
+    height: 100%;
+    position: relative;
+    justify-content: space-between;
+}
+
+.landing-page-href {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    height: 100%;
+    position: relative;
+    justify-content: space-between;
+}
+
+.landing-page-linkedin-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 9px;
+    transition-duration: .7s;
+    box-sizing: border-box;
+}
+
+.landing-page-linkedin-image:hover {
+    padding: 20px;
+    transition-duration: .7s;
+}
+
+.landing-page-github-image:hover {
+    padding: 20px;
+    transition-duration: .7s;
+}
+
+.landing-page-github-image {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 9px;
+    transition-duration: .7s;
+    box-sizing: border-box;
+}
+
+.landing-page-text {
+    height: 70%;
+    text-align: center;
+    color: #3C4668;
+    /* font-style */
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.landing-page-text-2 {
+    text-align: center;
+    color: #f6e2b3;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.landing-page-text-3 {
+    text-align: center;
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.landing-page-text-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1vw;
+    /* font-size: 1rem; */
+}

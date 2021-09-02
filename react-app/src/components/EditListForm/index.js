@@ -40,7 +40,7 @@ const EditListForm = ({list, refresher}) => {
         <>
         <form className="edit-item-form" onSubmit={handleSubmit}>
 
-        <input
+        <input className="create-list-input"
             placeholder={name}
             type="text"
             value={name}
