@@ -52,8 +52,7 @@ By having some "cost" associated with the value of space for the Lists you have,
 ### Items
 Here the user is able to create, edit, and remove items on their lists.
 ![Items](./readme-assets/images/2021-09-04-19_25_05-Window.png)
-Cancel adding {resource-1}
-![Cancel Add {resource-1}](./readme-assets/images/{resource-1}-add-cancel.jpg)
+
 
 
 
@@ -132,9 +131,8 @@ This is one of my favorite moments in making this project. <br> Using a predefin
 
 ### Brandon Simpson
 <a href="https://www.linkedin.com/in/brandon-simpson-5617ab212/">Linked In<img src="./readme-assets/images/linked-in-icon.png" height="38" align="middle" /></a><br>
-<a href="https://github.com/Omstachu">GitHub<img src="./readme-assets/images/github-icon.png" height="38" align="middle" /></a>
-
-omstachu626@gmail.com
+<a href="https://github.com/Omstachu">GitHub<img src="./readme-assets/images/github-icon.png" height="38" align="middle" /></a><br>
+Email: omstachu626@gmail.com
 
 
 ## Special Thanks
