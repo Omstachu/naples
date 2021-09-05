@@ -1,13 +1,13 @@
 <p align='center'>
-  <img src='./react-app/src/assets/images/logo.png' height='200px'>
+  <img src='./readme-assets/images/neapolitan-icecream-color-palette.png' height='200px'>
 </p>
 
-# {app-name}
-{app-name} is a short description of the app. It is a fullstack React App made with a Redux state manager and a backend using Python, Flask, SQL-Alchemy, and PostgresSQL and any other technologies.
+# Naples
+Naples is a todo-list / note-taking application that allows user to organize and keep track of the things that are most important to them. It is a fullstack React App made with a Redux state manager and a backend using Javascript, Python, Flask, SQL-Alchemy, Heroku and PostgresSQL.
 
-* View the <a href='https://{app-name}-app.herokuapp.com/'>{app-name}</a> App Live
+* View the <a href='https://naples-app.herokuapp.com/'>Naples</a> App Live
 
-* Reference to the {app-name} <a href='https://www.github.com/{github-handle}/{app-name}/wiki'>Wiki Docs</a>
+* Reference to the Naples <a href='https://github.com/Omstachu/naples/wiki'>Wiki Docs</a>
 
 | Table of Contents |
 | ----------------- |
