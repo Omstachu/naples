@@ -86,14 +86,15 @@ npm install
 pipenv shell
 ```
 
-5. In the root folder, create the database by running in the terminal:
+6. In the root folder, you can apply the migration to the database
 ```shell
-flask db create
+flask db upgrade
 ```
 
-6. In the root folder, migrate tables to the database by running in the terminal:
+Each time the database models change repeat the migrate and upgrade commands.
 ```shell
 flask db migrate
+flask db upgrade
 ```
 
 7. In the root folder, seed the database by running in the terminal:
