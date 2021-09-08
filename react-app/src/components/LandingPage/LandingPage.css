@@ -24,8 +24,12 @@
 
 .landing-page-linkedin-image {
     /* h/w 100% */
-    height: 75%;
+    position: relative;
+    height: 50%;
     width: 75%;
+    transform: translate(10%);
+    top: 20%;
+    /* margin: auto; */
     border-radius: 9px;
     transition-duration: .7s;
     box-sizing: border-box;
@@ -46,7 +50,9 @@
 .landing-page-github-image {
     /* h/w 100% */
     position: relative;
-    height: 75%;
+    transform: translate(25%);
+    top: 20%;
+    height: 50%;
     width: 75%;
     border-radius: 9px;
     transition-duration: .7s;
